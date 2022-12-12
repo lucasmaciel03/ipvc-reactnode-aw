@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-    <img src="DWM.png" alt="Logo" width="auto" height="150">
+    <img src="DWM.svg" alt="Logo" width="auto" height="100">
   </a>
   <h1 align="center">Video Club</h1>
 
