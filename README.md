@@ -4,7 +4,7 @@
   </a>
   <h1 align="center">Instituto Politécnico Viana do Castelo</h1>
 
-  <h1 align="center">Video Club</h3>
+  <h2 align="center">Video Club</h2>
   <h2 align="center">Aplicações Web</h2>
 </p>
 
