@@ -2,9 +2,10 @@
 <p align="center">
     <img src="DWM.svg" alt="Logo" width="auto" height="100">
   </a>
-  <h1 align="center">Video Club</h1>
+  <h1 align="center">Instituto Politécnico Viana do Castelo</h1>
 
-  <h3 align="center">Aplicações Web</h3>
+  <h3 align="center">Video Club</h3>
+  <h2 align="center">Aplicações Web</h2>
 </p>
 
 # 👨🏽‍💻 Autores
