@@ -1,7 +1,7 @@
 import { UserModel } from "../models/users.js";
 import bcrypt from 'bcrypt';
 
-// create new user after verify if username is already taken, verify if username is not null and verify is password have at least 8 characters and 1 capital letter, if user is created return the user and status 201
+// create new user
 export const createUser = async (req, res) => {
     const { username, password } = req.body;
     const user = await UserModel.findOne({
@@ -26,4 +26,27 @@ export const createUser = async (req, res) => {
         res.status(201).json('User Created!' + newUser);
     }
 }
+
+// get all users who have isAdmin = 0 dont return the password and id
+export const getAllUsers = async (req, res) => {
+    const users = await UserModel.findAll({
+        attributes: ['username', 'rentals'],
+        where: {
+            isAdmin: 0
+        }
+    });
+    res.json(users);
+}
+
+// get all admins who have isAdmin = 1 dont return the password and id
+export const getAllAdmins = async (req, res) => {
+    const admins = await UserModel.findAll({
+        attributes: ['username', 'rentals'],
+        where: {
+            isAdmin: 1
+        }
+    });
+    res.json(admins);
+}
+
 
