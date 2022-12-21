@@ -10,3 +10,8 @@ const dbInstance = new Sequelize({
 });
 
 export { dbInstance };
+
+
+
+
+
