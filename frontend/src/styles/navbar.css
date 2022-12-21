@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #c7ddcc;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #f6ebf4;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  color: #4cbfa6;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+}
+
+header ul {
+  position: relative;
+  display: flex;
+  gap: 30px;
+}
+
+header ul li {
+  list-style: none;
+}
+
+header ul li a {
+  position: relative;
+  text-decoration: none;
+  font-size: 1em;
+  color: #4cbfa6;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+header ul li a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: -2px;
+  height: 2px;
+  background: #4cbfa6;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: right;
+}
+
+header ul li a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.searchBox {
+  position: absolute;
+  right: 35%;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  background: #f6ebf4;
+  align-items: center;
+  padding: 0 30px;
+  transition: 0.5s ease-in-out;
+}
+
+.searchBox input {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 50px;
+  color: #4cbfa6;
+  font-size: 1.25em;
+  background: #f6ebf4;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
