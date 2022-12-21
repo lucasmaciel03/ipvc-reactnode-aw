@@ -11,8 +11,26 @@ body {
   background-color: #c7ddcc;
 }
 
-.header{
-  
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #b5c9ba;
+  display: flex;
+  padding: 1rem;
+  justify-content: flex-end;
+}
+
+.search {
+  background-color: transparent;
+  border: 2px solid #c7ddcc;
+  border-radius: 50%;
+  color: #482673;
+  font-family: inherit;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .movie-container {
