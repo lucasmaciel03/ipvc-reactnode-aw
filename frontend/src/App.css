@@ -11,6 +11,10 @@ body {
   background-color: #c7ddcc;
 }
 
+.header{
+  
+}
+
 .movie-container {
   display: flex;
   flex-wrap: wrap;
@@ -19,6 +23,7 @@ body {
 
 .movie {
   width: 300px;
+  position: relative;
   margin: 1rem;
   background-color: #482673;
   border-radius: 5px;
@@ -39,4 +44,25 @@ body {
 
 .movie-info h3 {
   margin: 0;
+}
+
+.movie-over {
+  background-color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  color: #482673;
+  padding: 1rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  max-height: 100%;
+  transform: translateY(102%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie:hover .movie-over {
+  transform: translateY(0);
 }
