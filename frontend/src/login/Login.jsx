@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/login.css";
+
 const login = () => {
   return (
     <div className="formlogin">
@@ -16,7 +17,7 @@ const login = () => {
             id="entrar"
           >
             <div className="username-field ct-input">
-              <label for="usuario-entrar">Username or email</label>
+              <label htmlFor="usuario-entrar">Username or email</label>
               <input
                 type="text"
                 id="usuario-entrar"
@@ -26,7 +27,7 @@ const login = () => {
             </div>
 
             <div className="senha-field ct-input">
-              <label for="senha-entrar">Password</label>
+              <label htmlFor="senha-entrar">Password</label>
               <input
                 type="password"
                 id="senha-entrar"
@@ -35,10 +36,9 @@ const login = () => {
               />
             </div>
 
-            <label for="lembrar" className="lembrar-label">
-              <input type="checkbox" id="lembrar" name="lembrar">
-                Remember Me
-              </input>
+            <label htmlFor="lembrar" className="lembrar-label">
+              <input type="checkbox" id="lembrar" name="lembrar"/>
+              Remember Me
             </label>
             <button type="submit" className="submit">
               Log In
@@ -54,7 +54,7 @@ const login = () => {
             method="post"
           >
             <div className="username-field ct-input">
-              <label for="usuario">Username</label>
+              <label htmlFor="usuario">Username</label>
               <input
                 type="text"
                 id="usuario"
@@ -67,12 +67,12 @@ const login = () => {
               </span>
             </div>
             <div className="email-field ct-input">
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
               <input type="email" id="email" name="email" placeholder="Email" />
               <span className="alert">Email must be valid.</span>
             </div>
             <div className="password-field ct-input">
-              <label for="senha">Password</label>
+              <label htmlFor="senha">Password</label>
               <input
                 type="password"
                 id="senha"
@@ -85,7 +85,7 @@ const login = () => {
               </span>
             </div>
             <div className="password-repeat-field ct-input">
-              <label for="senharpt">Repeat Password</label>
+              <label htmlFor="senharpt">Repeat Password</label>
               <input
                 type="password"
                 id="senharpt"
@@ -96,7 +96,7 @@ const login = () => {
             </div>
             <div className="termos-field ct-input">
               <input type="checkbox" id="termos" name="termos" />
-              <label for="termos">I agree to the terms of use</label>
+              <label htmlFor="termos">I agree to the terms of use</label>
             </div>
             <button type="submit" className="submit" id="submit-conta">
               Create Account

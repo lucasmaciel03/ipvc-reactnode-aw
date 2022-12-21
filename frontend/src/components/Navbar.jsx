@@ -6,25 +6,31 @@ const Navbar = () => {
     <div>
       <header>
         <Link to="/" className="removeuln">
-          <a href="#" className="logo">
+      
             MovieAL
-          </a>
+       
         </Link>
         <div className="group">
           <ul className="navigation">
             <li>
               <Link to="/">
-                <a href="#">Filmes</a>
+
+                  Filmes
+
               </Link>
             </li>
             <li>
               <Link to="/series">
-                <a href="#">Series</a>
+
+                  Séries
+
               </Link>
             </li>
             <li>
               <Link to="/login">
-                <a>Login</a>
+
+                  Login
+         
               </Link>
             </li>
           </ul>
