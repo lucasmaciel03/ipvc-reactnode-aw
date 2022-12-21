@@ -41,6 +41,9 @@ p {
   overflow-y: scroll;
   color: #f6ebf4;
 }
+p::-webkit-scrollbar {
+  display: none;
+}
 
 .cardTitle {
   margin-bottom: 0.5rem;
