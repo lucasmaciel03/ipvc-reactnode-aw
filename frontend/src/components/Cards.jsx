@@ -15,7 +15,8 @@ const Cards = () => {
         <div className="cardDescription">
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Consequatur, quia earum?quia earum?quia earum?quia earum?
+            Consequatur, quia earum?quia earum?quia earum?quia earum? earum?
+            earum?earum?earum?earum?earum?earum?earum?earum?earum?
           </p>
         </div>
       </div>
