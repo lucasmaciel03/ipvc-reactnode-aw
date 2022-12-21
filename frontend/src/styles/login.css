@@ -53,9 +53,10 @@ h1 {
 }
 
 .login {
+  margin: auto;
+  margin-top: 8rem;
   max-width: 430px;
   background: var(--bg-login);
-  margin: 0 auto;
   border-radius: 5px;
   overflow: hidden;
   border: 1px solid var(--border);

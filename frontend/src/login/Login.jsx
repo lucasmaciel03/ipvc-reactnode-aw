@@ -38,7 +38,7 @@ const login = () => {
 
             <label htmlFor="lembrar" className="lembrar-label">
               <input type="checkbox" id="lembrar" name="lembrar" />
-              Remember Me
+              &nbsp; Remember Me
             </label>
             <button type="submit" className="submit">
               Log In
