@@ -108,4 +108,8 @@ header ul li a:hover::before {
 .removeuln {
   text-decoration: none;
   color: #f6eaf3;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 1em;
+  color: #4cbfa6;
 }

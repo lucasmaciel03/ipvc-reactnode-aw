@@ -7,7 +7,7 @@ const login = () => {
       <section className="login">
         <div className="btns-login">
           <button className="btn-entrar ativo">Log In</button>
-          <button className="btn-cadastro">Create account</button>
+          <button className="btn-cadastro">Sign up</button>
         </div>
         <div className="container">
           <form

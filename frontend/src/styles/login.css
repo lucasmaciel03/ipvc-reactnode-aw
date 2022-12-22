@@ -146,13 +146,13 @@ form.ativo {
 }
 
 input:focus {
-  outline: 2px solid #0c813f;
+  outline: 2px solid #4cbfa6;
 }
 
 .submit {
   width: 100%;
   padding: 15px 10px;
-  background: #0c813f;
+  background: #4cbfa6;
   color: white;
   border-radius: 4px;
   margin-top: 20px;
@@ -172,7 +172,7 @@ input:focus {
   margin-top: 20px;
   text-align: center;
   display: block;
-  color: #0d6579;
+  color: #4cbfa6;
 }
 
 .lembrar-label {
