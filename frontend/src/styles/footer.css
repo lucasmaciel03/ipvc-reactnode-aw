@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.Footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container-footer {
+  width: 100%;
+  height: auto;
+  margin-top: 5rem;
+  background: #2c3333;
+}
+
+.container-footer .top-footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 4rem 2rem;
+}
+
+.container-footer .top-footer h3 {
+  color: #f6eaf3;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.container-footer .top-footer .input-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-footer .top-footer .input-footer input {
+  width: 20rem;
+  height: 2rem;
+  border: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 0 0.5rem;
+}
+
+.container-footer .top-footer .input-footer button {
+  background: #4cbfa6;
+  height: 2rem;
+  width: 5rem;
+  color: #f6eaf3;
+  cursor: pointer;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.container-footer .bottom-footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 2rem;
+}
