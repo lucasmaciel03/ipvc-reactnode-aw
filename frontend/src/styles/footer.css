@@ -31,6 +31,10 @@
   font-weight: 600;
 }
 
+.container-footer .top-footer .text-footer span {
+  color: #4cbfa6;
+}
+
 .container-footer .top-footer .input-footer {
   display: flex;
   justify-content: center;

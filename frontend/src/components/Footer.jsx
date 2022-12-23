@@ -7,7 +7,9 @@ const Footer = () => {
       <div className="container-footer">
         <div className="top-footer">
           <div className="text-footer">
-            <h3>Be the first to receive new releases!</h3>
+            <h3>
+              <span>Be the first to</span> receive new releases!
+            </h3>
           </div>
           <div className="input-footer">
             <form>
