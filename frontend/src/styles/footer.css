@@ -59,5 +59,17 @@
 .container-footer .bottom-footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 2rem 2rem;
+}
+
+.fa {
+  font-size: 2rem;
+  text-decoration: none;
+  color: #f6eaf3;
+  margin-left: 2rem;
+}
+
+.fa:hover {
+  color: #4cbfa6;
 }
