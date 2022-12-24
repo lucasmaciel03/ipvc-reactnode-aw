@@ -18,7 +18,7 @@ const Footer = () => {
                 type="email"
                 placeholder="Your email"
               ></input>
-              <button for="footerEmail" type="button">
+              <button type="submit" for="footerEmail">
                 Send
               </button>
             </form>
