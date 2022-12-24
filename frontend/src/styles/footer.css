@@ -43,7 +43,7 @@
 
 .container-footer .top-footer .input-footer input {
   width: 20rem;
-  height: 2rem;
+  height: 2.5rem;
   border: none;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -52,7 +52,7 @@
 
 .container-footer .top-footer .input-footer button {
   background: #4cbfa6;
-  height: 2rem;
+  height: 2.5rem;
   width: 5rem;
   color: #f6eaf3;
   cursor: pointer;
