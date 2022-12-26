@@ -18,7 +18,7 @@ const Footer = () => {
                 type="email"
                 placeholder="Your email"
               ></input>
-              <button type="submit" for="footerEmail">
+              <button type="submit" htmlFor="footerEmail">
                 Send
               </button>
             </form>
@@ -32,19 +32,19 @@ const Footer = () => {
             <a
               href="https://www.facebook.com"
               target="_blank"
-              class="fa fa-facebook"
+              className="fa fa-facebook"
               rel="noreferrer"
             ></a>
             <a
               href="https://www.twitter.com"
               target="_blank"
-              class="fa fa-twitter"
+              className="fa fa-twitter"
               rel="noreferrer"
             ></a>
             <a
               href="https://www.linkedin.com"
               target="_blank"
-              class="fa fa-linkedin"
+              className="fa fa-linkedin"
               rel="noreferrer"
             ></a>
           </div>
