@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
 import { Route, Routes } from "react-router-dom";
-import Login from "./login/Login.jsx";
-import Series from "./components/Series.jsx";
-import Footer from "./components/Footer.jsx";
-import Register from "./register/Register.jsx";
+import Navbar from "./components/Client/Navbar/Navbar.jsx";
+import Home from "./components/Client/Home/Home.jsx";
+import Login from "./components/Client/Login/Login.jsx";
+import Series from "./components/Client/Series/Series.jsx";
+import Footer from "./components/Client/Footer/Footer.jsx";
+import Register from "./components/Client/Register/Register.jsx";
 
 function App() {
   return (

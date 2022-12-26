@@ -1,6 +1,7 @@
 import React from "react";
-import Cards from "./Cards";
-import "../styles/series.css";
+import Cards from "../Card/Cards.jsx";
+import "./series.css";
+
 function Series() {
   return (
     <div className="movies">
