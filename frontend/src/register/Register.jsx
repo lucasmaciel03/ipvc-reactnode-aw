@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/register.css";
+import { Link } from "react-router-dom";
 
 const register = () => {
   <div className="registerform">
@@ -53,7 +54,11 @@ const register = () => {
               placeholder="Repeat Password"
             />
           </div>
-
+          <div className="remember-create-link">
+            <Link to="/login" className="create-link">
+              I already have an account.
+            </Link>
+          </div>
           <button type="submit" className="submit">
             Register
           </button>

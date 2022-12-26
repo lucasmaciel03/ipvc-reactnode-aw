@@ -40,7 +40,7 @@ const login = () => {
                 <input type="checkbox" id="lembrar" name="lembrar" />
                 &nbsp; Remember Me
               </label>
-              <Link to="/Register" className="create-link">
+              <Link to="/register" className="create-link">
                 Create Account
               </Link>
             </div>
