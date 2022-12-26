@@ -3,7 +3,8 @@ import "../styles/register.css";
 import { Link } from "react-router-dom";
 
 const register = () => {
-  <div className="registerform">
+  return (
+    <div className="registerform">
     <section className="login">
       <div className="btns-login">
         <h2>Sign Up</h2>
@@ -66,7 +67,8 @@ const register = () => {
       </div>
     </section>
     ;
-  </div>;
+  </div>
+  )
 };
 
 export default register;
