@@ -86,7 +86,14 @@ p::-webkit-scrollbar {
 }
 
 .fav a {
-  width: 3rem;
-  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15%;
+}
+
+.fav img {
+  width: 2rem;
+  height: 2rem;
   background-repeat: no-repeat;
 }
