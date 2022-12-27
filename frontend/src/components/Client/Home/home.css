@@ -27,7 +27,7 @@ body {
   margin-bottom: 3rem;
   color: #f5f7f8;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../../../images/movieback.jpeg);
+    url(../../../images/ironman.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
