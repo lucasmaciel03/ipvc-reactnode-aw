@@ -25,6 +25,11 @@ const Cards = () => {
         <button>
           <a>Alugar</a>
         </button>
+        <div className="fav">
+          <a href="#">
+            <img src="../../../images/star100white.png"></img>
+          </a>
+        </div>
       </div>
     </div>
   );

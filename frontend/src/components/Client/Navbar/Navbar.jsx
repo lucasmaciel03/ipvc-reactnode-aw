@@ -11,13 +11,19 @@ const Navbar = () => {
         <div className="group">
           <ul className="navigation">
             <li>
-              <Link to="/">Movies</Link>
+              <Link to="/" className="movies-active">
+                Movies
+              </Link>
             </li>
             <li>
-              <Link to="/series">Series</Link>
+              <Link to="/series" className="series-active">
+                Series
+              </Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/login" className="login-active">
+                Login
+              </Link>
             </li>
           </ul>
           <div className="searchBox">

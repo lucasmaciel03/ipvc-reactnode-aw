@@ -52,15 +52,17 @@ p::-webkit-scrollbar {
 
 .btn {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .btn button {
   padding: 0.5rem;
-  width: 100px;
+  width: 12.5rem;
+  height: 3rem;
   background-color: #4cbfa6;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
   color: #f6ebf4;
   margin-bottom: 1rem;
@@ -71,4 +73,20 @@ p::-webkit-scrollbar {
   background-color: #f6ebf4;
   color: #4cbfa6;
   border: 1px solid #4cbfa6;
+}
+
+.fav {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  background-color: #f6ebf4;
+  color: #4cbfa6;
+  border-radius: 5px;
+}
+
+.fav a {
+  width: 3rem;
+  height: 3rem;
+  background-repeat: no-repeat;
 }
