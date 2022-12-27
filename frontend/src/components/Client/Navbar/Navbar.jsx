@@ -11,10 +11,10 @@ const Navbar = () => {
         <div className="group">
           <ul className="navigation">
             <li>
-              <Link to="/">Filmes</Link>
+              <Link to="/">Movies</Link>
             </li>
             <li>
-              <Link to="/series">Séries</Link>
+              <Link to="/series">Series</Link>
             </li>
             <li>
               <Link to="/login">Login</Link>

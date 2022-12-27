@@ -4,6 +4,7 @@ import "./home.css";
 function Home() {
   return (
     <div className="movies">
+      <div className="movie-text">Movies</div>
       <Cards></Cards>
       <Cards></Cards>
       <Cards></Cards>

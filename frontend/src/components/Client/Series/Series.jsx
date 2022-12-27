@@ -4,7 +4,8 @@ import "./series.css";
 
 function Series() {
   return (
-    <div className="movies">
+    <div className="series">
+      <div className="series-text">Series</div>
       <Cards></Cards>
       <Cards></Cards>
       <Cards></Cards>
