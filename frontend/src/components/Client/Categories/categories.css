@@ -4,20 +4,3 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
 }
-
-.slide-categories {
-  width: 100%;
-  height: 10rem;
-  color: #f6eaf3;
-  border: 1px solid red;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.swiperslide {
-  width: 100%;
-  text-align: center;
-  color: #f6eaf3;
-  border: 1px solid white;
-}

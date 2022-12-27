@@ -51,6 +51,7 @@ function Categories() {
         <SwiperSlide className="swiperslide">
           <h1>Thriller</h1>
         </SwiperSlide>
+        <SwiperSlide></SwiperSlide>
       </Swiper>
     </div>
   );
