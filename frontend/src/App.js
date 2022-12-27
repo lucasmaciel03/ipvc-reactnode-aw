@@ -7,6 +7,9 @@ import Series from "./components/Client/Series/Series.jsx";
 import Footer from "./components/Client/Footer/Footer.jsx";
 import Register from "./components/Client/Register/Register.jsx";
 
+// eslint-disable-next-line
+import "swiper/css/bundle";
+
 function App() {
   return (
     <div>
