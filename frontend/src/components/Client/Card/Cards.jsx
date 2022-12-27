@@ -1,7 +1,6 @@
 import React from "react";
 import "./card.css";
 import star100white from "../../../images/star100white.png";
-import star100cor from "../../../images/start100cor.png";
 
 const Cards = () => {
   return (
