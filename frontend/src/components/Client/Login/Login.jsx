@@ -56,10 +56,6 @@ const Login = () => {
               />
             </div>
             <div className="remember-create-link">
-              <label htmlFor="lembrar" className="lembrar-label">
-                <input type="checkbox" id="lembrar" name="lembrar" />
-                &nbsp; Remember Me
-              </label>
               <Link to="/register" className="create-link">
                 Create Account
               </Link>
@@ -68,7 +64,7 @@ const Login = () => {
               Log In
             </button>
             <Link to="/resetpassword" className="forgot">
-              Forgot username or password
+              Forgot password
             </Link>
           </form>
         </div>
