@@ -1,8 +1,25 @@
 import React from "react";
 import "./login.css";
 import { Link } from "react-router-dom";
+import { Icon } from "react-icons-kit";
+import { eyeOff } from "react-icons-kit/feather/eyeOff";
+import { eye } from "react-icons-kit/feather/eye";
+import { useState } from "react";
 
-const login = () => {
+const Login = () => {
+  const [type, setType] = useState("password");
+  const [icon, setIcon] = useState(eyeOff);
+
+  const handleToggle = () => {
+    if (type === "password") {
+      setType("text");
+      setIcon(eye);
+    } else {
+      setType("password");
+      setIcon(eyeOff);
+    }
+  };
+
   return (
     <div className="formlogin">
       <section className="login">
@@ -28,8 +45,11 @@ const login = () => {
 
             <div className="senha-field ct-input">
               <label htmlFor="senha-entrar">Password</label>
+              <span onClick={handleToggle}>
+                <Icon icon={icon} size={20} />
+              </span>
               <input
-                type="password"
+                type={type}
                 id="senha-entrar"
                 name="senha-entrar"
                 placeholder="Password"
@@ -57,4 +77,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
