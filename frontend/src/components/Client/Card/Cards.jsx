@@ -1,6 +1,7 @@
 import React from "react";
 import "./card.css";
 import star100white from "../../../images/star100white.png";
+import { Link } from "react-router-dom";
 
 const Cards = () => {
   return (
@@ -24,7 +25,9 @@ const Cards = () => {
 
       <div className="btn">
         <button>
-          <a>Alugar</a>
+          <Link className="noline" to="/movierent">
+            Alugar
+          </Link>
         </button>
         <div className="fav">
           <a href="#">

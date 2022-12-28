@@ -7,6 +7,7 @@ import Series from "./components/Client/Series/Series.jsx";
 import Footer from "./components/Client/Footer/Footer.jsx";
 import Register from "./components/Client/Register/Register.jsx";
 import Resetpassword from "./components/Client/ResetPassword/Resetpassword.jsx";
+import Movierent from "./components/Client/Movierent/Movierent.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/series" element={<Series />}></Route>
         <Route path="/resetpassword" element={<Resetpassword />}></Route>
+        <Route path="/movierent" element={<Movierent />}></Route>
       </Routes>
       <Footer></Footer>
     </div>

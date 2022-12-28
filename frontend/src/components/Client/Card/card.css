@@ -69,6 +69,10 @@ p::-webkit-scrollbar {
   text-transform: uppercase;
 }
 
+.noline {
+  text-decoration: none;
+}
+
 .btn button:hover {
   background-color: #f6ebf4;
   color: #4cbfa6;
