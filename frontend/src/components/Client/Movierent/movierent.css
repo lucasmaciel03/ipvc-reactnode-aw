@@ -42,31 +42,8 @@ form.ativo {
   position: relative;
 }
 
-.ct-input label {
-  font-size: 14px;
-  margin-bottom: 10px;
-  display: block;
-}
-
-.ct-input + .ct-input {
-  margin-top: 40px;
-}
-
-.ct-input input {
-  width: 100%;
-  display: block;
-  background: var(--bg-input);
-  border-radius: 4px;
-  padding: 15px 10px;
-  border: 1px solid var(--border);
-}
-
 p {
   color: black;
-}
-
-input:focus {
-  outline: 2px solid #4cbfa6;
 }
 
 button {
@@ -76,15 +53,6 @@ button {
   font-weight: inherit;
   font-family: inherit;
   color: inherit;
-}
-
-input {
-  font-size: inherit;
-  font-weight: inherit;
-  font-family: inherit;
-  border: 0;
-  outline: 0;
-  margin-bottom: 2rem;
 }
 
 .movie-image {
