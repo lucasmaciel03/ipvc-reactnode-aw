@@ -69,29 +69,12 @@ h1 {
   justify-content: center;
 }
 
-.btns-login > * {
-  flex: 1;
-  padding: 15px;
-  transition: all 0.2s ease;
-}
-
 .btns-login button {
   background: var(--bg-input);
 }
 
-.btns-login button:hover,
-button.ativo,
-.btns-login button.ativo:hover {
-  background: var(--bg-login);
-}
-
 .container {
   padding: 30px;
-}
-
-.form-entrar,
-.form-criar-conta {
-  display: none;
 }
 
 form.ativo {
@@ -120,31 +103,6 @@ form.ativo {
   border-radius: 4px;
   padding: 15px 10px;
   border: 1px solid var(--border);
-}
-
-.ct-input i {
-  position: absolute;
-  top: 45px;
-  right: 10px;
-  display: none;
-}
-
-.ct-input.invalido i.fa-times-circle {
-  color: #ec3030;
-  display: block;
-}
-
-.ct-input.invalido input {
-  border: 2px solid #ec3030;
-}
-
-.ct-input.valido i.fa-check-circle {
-  color: rgb(77, 212, 72);
-  display: block;
-}
-
-.termos-field {
-  margin-top: 20px;
 }
 
 input:focus {

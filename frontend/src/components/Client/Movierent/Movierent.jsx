@@ -9,11 +9,11 @@ const Movierent = () => {
           <h2>Rent a Movie</h2>
         </div>
         <div className="container">
-          <form action="#" className="form-rent" method="post" id="rent">
+          <form action="#" className="form-rent ativo" method="post" id="rent">
             <div className="movie-info">
               <div className="movie-image"></div>
-              <div className="movie-name">
-                <label for="movie-name">Movie Name</label>
+              <div className="movie-name ct-input">
+                <label htmlfor="movie-name">Movie Name</label>
                 <input
                   type="text"
                   id="movie-name"
@@ -21,7 +21,7 @@ const Movierent = () => {
                   placeholder="Movie Name"
                   readOnly="true"
                 />
-                <label for="movie-time">Movie Time</label>
+                <label htmlfor="movie-time ct-input">Movie Time</label>
                 <input
                   type="time"
                   id="movie-time"
@@ -29,7 +29,9 @@ const Movierent = () => {
                   placeholder="Movie Time"
                   readOnly="true"
                 />
-                <label for="movie-price">Movie Price - &euro;</label>
+                <label htmlfor="movie-price ct-input">
+                  Movie Price - &euro;
+                </label>
                 <input
                   type="number"
                   id="movie-price"
@@ -37,7 +39,7 @@ const Movierent = () => {
                   placeholder="Movie Price"
                   readOnly="true"
                 />
-                <label for="movie-evaluation">Evaluation</label>
+                <label htmlfor="movie-evaluation ct-input">Evaluation</label>
                 <input
                   type="number"
                   id="movie-evaluation"
@@ -46,6 +48,11 @@ const Movierent = () => {
                   readOnly="true"
                 />
               </div>
+            </div>
+            <div className="rent">
+              <button type="submit" className="submit">
+                Rent
+              </button>
             </div>
           </form>
         </div>
