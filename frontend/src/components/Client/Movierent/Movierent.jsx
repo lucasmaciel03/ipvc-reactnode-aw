@@ -1,6 +1,8 @@
 import React from "react";
 import "./movierent.css";
 import Ironman from "../../../images/ironman.png";
+import emptystar from "../../../images/estrelavazia.png";
+import fullstar from "../../../images/estrelacheia.png";
 
 const Movierent = () => {
   return (
@@ -15,25 +17,38 @@ const Movierent = () => {
               <div className="movie-image">
                 <img src={Ironman}></img>
               </div>
-              <div className="movie-name ct-input">
-                <label htmlfor="movie-name">Movie Name:</label>
-                <p>Movie Name</p>
-              </div>
-              <div className="movie-description ct-input">
-                <label htmlfor="movie-description">Description:</label>
-                <p>Description</p>
-              </div>
-              <div className="movie-time ct-input">
-                <label htmlfor="movie-time ct-input">Duration:</label>
-                <p>2h:13m:21s</p>
-              </div>
-              <div className="movie-price ct-input">
-                <label htmlfor="movie-price ct-input">Movie Price:</label>
-                <p>Movie Price</p>
-              </div>
-              <div className="movie-evaluation ct-input">
-                <label htmlfor="movie-evaluation ct-input">Evaluation:</label>
-                <p>Evaluation</p>
+              <div className="movie-info-rent">
+                <label htmlfor="movie-name">
+                  <p className="title-movie">Iron Man vs Captain America</p>
+                </label>
+                <label htmlfor="movie-description">
+                  <p className="movie-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Reprehenderit officiis aperiam alias, quos incidunt commodi
+                    maxime quibusdam laudantium similique, hic fugiat repellat
+                    quam labore tempore officia minima at iste provident?
+                  </p>
+                </label>
+                <div className="movie-evaluation">
+                  <img className="starsize" src={fullstar}></img>
+                  <img className="starsize" src={fullstar}></img>
+                  <img className="starsize" src={fullstar}></img>
+                  <img className="starsize" src={emptystar}></img>
+                  <img className="starsize" src={emptystar}></img>
+                </div>
+                <label htmlfor="movie-condition">
+                  <p className="movie-condition">
+                    <b>Condition:</b> <span>Available</span>
+                  </p>
+                </label>
+                <label htmlfor="movie-time">
+                  <p className="movie-time">
+                    <b>Time:</b> 2h:13m:21s
+                  </p>
+                </label>
+                <label htmlfor="movie-price">
+                  <p className="movie-price">7.50 €</p>
+                </label>
               </div>
             </div>
             <div className="rent-movie">

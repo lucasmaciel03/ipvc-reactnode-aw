@@ -38,11 +38,17 @@ form.ativo {
 
 .ct-input {
   width: auto;
-  margin-top: 3rem;
   position: relative;
 }
 
-p {
+.movie-time {
+  color: black;
+}
+
+.movie-name,
+.movie-description,
+.movie-condition,
+.movie-time p {
   color: black;
 }
 
@@ -55,11 +61,72 @@ button {
   color: inherit;
 }
 
+.movie-info {
+  width: 100%;
+  display: flex;
+}
+
 .movie-image {
-  text-align: center;
+  width: 50%;
+}
+
+.movie-info-rent {
+  width: 50%;
+  margin: 0;
 }
 
 .movie-image img {
   width: 100%;
+  height: 50vh;
+  position: relative;
   margin: auto;
+  background-size: contain;
+}
+
+.title-movie {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #4cbfa6;
+  padding: 0px 25px;
+}
+
+.movie-description {
+  padding: 0px 25px;
+  width: 80%;
+  color: black;
+  font-weight: bold;
+  opacity: 50%;
+  margin-top: 10px;
+}
+
+.movie-evaluation {
+  padding: 0px 25px;
+  margin-top: 10px;
+}
+
+.starsize {
+  width: 20px;
+  height: 20px;
+}
+
+.movie-condition {
+  padding: 0px 25px;
+  margin-top: 10px;
+}
+
+.movie-condition span {
+  color: rgb(53, 200, 53);
+}
+
+.movie-time {
+  padding: 0px 25px;
+  margin-top: 10px;
+}
+
+.movie-price {
+  padding: 0px 25px;
+  margin-top: 10px;
+  color: rgb(53, 200, 53);
+  font-size: 1.5rem;
+  font-weight: bold;
 }
