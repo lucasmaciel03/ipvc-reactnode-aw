@@ -17,45 +17,23 @@ const Movierent = () => {
               </div>
               <div className="movie-name ct-input">
                 <label htmlfor="movie-name">Movie Name:</label>
-                <input
-                  type="text"
-                  id="movie-name"
-                  name="movie-name"
-                  placeholder="Movie Name"
-                  readOnly="true"
-                />
+                <p>Movie Name</p>
+              </div>
+              <div className="movie-description ct-input">
                 <label htmlfor="movie-description">Description:</label>
-                <input
-                  type="text"
-                  id="movie-description"
-                  name="movie-description"
-                  placeholder="Description"
-                  readOnly="true"
-                />
+                <p>Description</p>
+              </div>
+              <div className="movie-time ct-input">
                 <label htmlfor="movie-time ct-input">Duration:</label>
-                <input
-                  type="time"
-                  id="movie-time"
-                  name="movie-time"
-                  placeholder="Duration"
-                  readOnly="true"
-                />
+                <p>2h:13m:21s</p>
+              </div>
+              <div className="movie-price ct-input">
                 <label htmlfor="movie-price ct-input">Movie Price:</label>
-                <input
-                  type="number"
-                  id="movie-price"
-                  name="movie-price"
-                  placeholder="Movie Price"
-                  readOnly="true"
-                />
+                <p>Movie Price</p>
+              </div>
+              <div className="movie-evaluation ct-input">
                 <label htmlfor="movie-evaluation ct-input">Evaluation:</label>
-                <input
-                  type="number"
-                  id="movie-evaluation"
-                  name="movie-evaluation"
-                  placeholder="Evaluation"
-                  readOnly="true"
-                />
+                <p>Evaluation</p>
               </div>
             </div>
             <div className="rent-movie">
