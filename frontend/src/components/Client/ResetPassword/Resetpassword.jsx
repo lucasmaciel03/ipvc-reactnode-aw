@@ -1,13 +1,13 @@
 import React from "react";
-import "./login.css";
+import "./resetpassword.css";
 import { Link } from "react-router-dom";
 
-const login = () => {
+const Resetpassword = () => {
   return (
-    <div className="formlogin">
+    <div className="registerform">
       <section className="login">
         <div className="btns-login">
-          <h2>Log In</h2>
+          <h2>Reset Password</h2>
         </div>
         <div className="container">
           <form
@@ -17,7 +17,7 @@ const login = () => {
             id="entrar"
           >
             <div className="username-field ct-input">
-              <label htmlFor="usuario-entrar">Username or email</label>
+              <label htmlFor="usuario-entrar">Username</label>
               <input
                 type="text"
                 id="usuario-entrar"
@@ -27,7 +27,7 @@ const login = () => {
             </div>
 
             <div className="senha-field ct-input">
-              <label htmlFor="senha-entrar">Password</label>
+              <label htmlFor="senha-entrar">New Password</label>
               <input
                 type="password"
                 id="senha-entrar"
@@ -35,26 +35,28 @@ const login = () => {
                 placeholder="Password"
               />
             </div>
-            <div className="remember-create-link">
-              <label htmlFor="lembrar" className="lembrar-label">
-                <input type="checkbox" id="lembrar" name="lembrar" />
-                &nbsp; Remember Me
-              </label>
-              <Link to="/register" className="create-link">
-                Create Account
-              </Link>
+
+            <div className="senha-field ct-input">
+              <label htmlFor="senha-entrar">Repeat Password</label>
+              <input
+                type="password"
+                id="senha-entrar"
+                name="senha-entrar"
+                placeholder="Repeat Password"
+              />
             </div>
             <button type="submit" className="submit">
-              Log In
+              Reset Password
             </button>
-            <Link href="/resetpassword" className="forgot">
-              Forgot username or password
+            <Link href="/" className="forgot">
+              Back
             </Link>
           </form>
         </div>
       </section>
+      ;
     </div>
   );
 };
 
-export default login;
+export default Resetpassword;
