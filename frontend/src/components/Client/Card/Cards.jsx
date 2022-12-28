@@ -24,11 +24,9 @@ const Cards = () => {
       </div>
 
       <div className="btn">
-        <button>
-          <Link className="noline" to="/movierent">
-            Alugar
-          </Link>
-        </button>
+        <Link to="/movierent" className="noline">
+          Alugar
+        </Link>
         <div className="fav">
           <a href="#">
             <img src={star100white}></img>

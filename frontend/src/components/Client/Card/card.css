@@ -56,7 +56,7 @@ p::-webkit-scrollbar {
   align-items: center;
 }
 
-.btn button {
+.btn .noline {
   padding: 0.5rem;
   width: 12.5rem;
   height: 3rem;
@@ -67,13 +67,16 @@ p::-webkit-scrollbar {
   color: #f6ebf4;
   margin-bottom: 1rem;
   text-transform: uppercase;
-}
-
-.noline {
   text-decoration: none;
+  text-align: center;
+  padding-top: 0.7rem;
 }
 
-.btn button:hover {
+.noline:hover {
+  color: #4cbfa6;
+}
+
+.btn .noline:hover {
   background-color: #f6ebf4;
   color: #4cbfa6;
   border: 1px solid #4cbfa6;
