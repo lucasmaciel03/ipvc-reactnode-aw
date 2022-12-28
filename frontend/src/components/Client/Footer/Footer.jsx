@@ -8,26 +8,11 @@ const Footer = () => {
         <div className="top-footer">
           <div className="text-footer">
             <h3>
-              <span>Be the first to</span> receive new releases!
+              <span>MovieAL </span> rent your favorite movies
             </h3>
-          </div>
-          <div className="input-footer">
-            <form>
-              <input
-                id="footerEmail"
-                type="email"
-                placeholder="Your email"
-              ></input>
-              <button type="submit" htmlFor="footerEmail">
-                Send
-              </button>
-            </form>
           </div>
         </div>
         <div className="bottom-footer">
-          <div className="rights-footer">
-            <p>© 2022 All rights reserved</p>
-          </div>
           <div className="social-foooter">
             <a
               href="https://www.facebook.com"
