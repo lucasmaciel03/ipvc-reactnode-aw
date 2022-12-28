@@ -62,3 +62,24 @@ form.ativo {
 input:focus {
   outline: 2px solid #4cbfa6;
 }
+
+button {
+  border: 0;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+
+input {
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  border: 0;
+  outline: 0;
+}
+
+input::placeholder {
+  color: #aaaaaa;
+}

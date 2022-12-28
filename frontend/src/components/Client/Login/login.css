@@ -47,11 +47,6 @@ input::placeholder {
   color: #aaaaaa;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
 .login {
   margin: auto;
   margin-top: 8rem;
