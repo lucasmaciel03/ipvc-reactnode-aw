@@ -13,7 +13,7 @@
 .rent {
   margin: auto;
   margin-top: 8rem;
-  max-width: 430px;
+  max-width: 800px;
   background: var(--bg-login);
   border-radius: 5px;
   overflow: hidden;
@@ -25,6 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1rem;
 }
 
 .container {
@@ -36,13 +37,14 @@ form.ativo {
 }
 
 .ct-input {
-  width: 100%;
+  width: auto;
+  margin-top: 3rem;
   position: relative;
 }
 
 .ct-input label {
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   display: block;
 }
 
@@ -78,8 +80,14 @@ input {
   font-family: inherit;
   border: 0;
   outline: 0;
+  margin-bottom: 2rem;
 }
 
-input::placeholder {
-  color: #aaaaaa;
+.movie-image {
+  text-align: center;
+}
+
+.movie-image img {
+  width: 100%;
+  margin: auto;
 }

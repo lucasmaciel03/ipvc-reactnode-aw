@@ -1,5 +1,6 @@
 import React from "react";
 import "./movierent.css";
+import Ironman from "../../../images/ironman.png";
 
 const Movierent = () => {
   return (
@@ -11,9 +12,11 @@ const Movierent = () => {
         <div className="container">
           <form action="#" className="form-rent ativo" method="post" id="rent">
             <div className="movie-info">
-              <div className="movie-image"></div>
+              <div className="movie-image">
+                <img src={Ironman}></img>
+              </div>
               <div className="movie-name ct-input">
-                <label htmlfor="movie-name">Movie Name</label>
+                <label htmlfor="movie-name">Movie Name:</label>
                 <input
                   type="text"
                   id="movie-name"
@@ -21,17 +24,23 @@ const Movierent = () => {
                   placeholder="Movie Name"
                   readOnly="true"
                 />
-                <label htmlfor="movie-time ct-input">Movie Time</label>
+                <label htmlfor="movie-description">Description:</label>
+                <input
+                  type="text"
+                  id="movie-description"
+                  name="movie-description"
+                  placeholder="Description"
+                  readOnly="true"
+                />
+                <label htmlfor="movie-time ct-input">Duration:</label>
                 <input
                   type="time"
                   id="movie-time"
                   name="movie-time"
-                  placeholder="Movie Time"
+                  placeholder="Duration"
                   readOnly="true"
                 />
-                <label htmlfor="movie-price ct-input">
-                  Movie Price - &euro;
-                </label>
+                <label htmlfor="movie-price ct-input">Movie Price:</label>
                 <input
                   type="number"
                   id="movie-price"
@@ -39,7 +48,7 @@ const Movierent = () => {
                   placeholder="Movie Price"
                   readOnly="true"
                 />
-                <label htmlfor="movie-evaluation ct-input">Evaluation</label>
+                <label htmlfor="movie-evaluation ct-input">Evaluation:</label>
                 <input
                   type="number"
                   id="movie-evaluation"
@@ -49,7 +58,7 @@ const Movierent = () => {
                 />
               </div>
             </div>
-            <div className="rent">
+            <div className="rent-movie">
               <button type="submit" className="submit">
                 Rent
               </button>
