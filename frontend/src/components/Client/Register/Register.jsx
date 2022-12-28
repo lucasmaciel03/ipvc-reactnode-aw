@@ -1,13 +1,29 @@
 import React from "react";
-import { useEffect, useState } from 'react';
+import { useState } from "react";
 import "./register.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Icon } from "react-icons-kit";
+import { eyeOff } from "react-icons-kit/feather/eyeOff";
+import { eye } from "react-icons-kit/feather/eye";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+
+  const [type, setType] = useState("password");
+  const [icon, setIcon] = useState(eyeOff);
+
+  const handleToggle = () => {
+    if (type === "password") {
+      setType("text");
+      setIcon(eye);
+    } else {
+      setType("password");
+      setIcon(eyeOff);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +31,7 @@ function Register() {
 
     //validate password and repeat password
     if (password !== repeatPassword) {
-      toast.error('❌ Password erro', {
+      toast.error("❌ Password erro", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -24,7 +40,7 @@ function Register() {
         draggable: true,
         progress: undefined,
         theme: "dark",
-        });
+      });
       return;
     }
 
@@ -43,7 +59,7 @@ function Register() {
       .then((data) => {
         console.log(data);
         if (data.status === "success") {
-          toast.success('✅ User created', {
+          toast.success("✅ User created", {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -52,10 +68,9 @@ function Register() {
             draggable: true,
             progress: undefined,
             theme: "dark",
-            });
-          ;
+          });
         } else {
-          toast.success('✅ User created', {
+          toast.success("✅ User created", {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -64,11 +79,11 @@ function Register() {
             draggable: true,
             progress: undefined,
             theme: "dark",
-            });
+          });
         }
       });
   };
-  
+
   return (
     <div className="registerform">
       <section className="login">
@@ -96,8 +111,11 @@ function Register() {
 
             <div className="senha-field ct-input">
               <label htmlFor="senha-entrar">Password</label>
+              <span onClick={handleToggle}>
+                <Icon icon={icon} size={20} />
+              </span>
               <input
-                type="password"
+                type={type}
                 id="senha-entrar"
                 name="senha-entrar"
                 placeholder="Password"
@@ -107,8 +125,11 @@ function Register() {
 
             <div className="senha-field ct-input">
               <label htmlFor="senha-entrar">Repeat Password</label>
+              <span onClick={handleToggle}>
+                <Icon icon={icon} size={20} />
+              </span>
               <input
-                type="password"
+                type={type}
                 id="senha-entrar"
                 name="senha-entrar"
                 placeholder="Repeat Password"
@@ -128,7 +149,7 @@ function Register() {
       </section>
       ;
     </div>
-  )
-};
+  );
+}
 
 export default Register;

@@ -1,8 +1,25 @@
 import React from "react";
 import "./resetpassword.css";
 import { Link } from "react-router-dom";
+import { Icon } from "react-icons-kit";
+import { eyeOff } from "react-icons-kit/feather/eyeOff";
+import { eye } from "react-icons-kit/feather/eye";
+import { useState } from "react";
 
 const Resetpassword = () => {
+  const [type, setType] = useState("password");
+  const [icon, setIcon] = useState(eyeOff);
+
+  const handleToggle = () => {
+    if (type === "password") {
+      setType("text");
+      setIcon(eye);
+    } else {
+      setType("password");
+      setIcon(eyeOff);
+    }
+  };
+
   return (
     <div className="registerform">
       <section className="login">
@@ -28,8 +45,11 @@ const Resetpassword = () => {
 
             <div className="senha-field ct-input">
               <label htmlFor="senha-entrar">New Password</label>
+              <span onClick={handleToggle}>
+                <Icon icon={icon} size={20} />
+              </span>
               <input
-                type="password"
+                type={type}
                 id="senha-entrar"
                 name="senha-entrar"
                 placeholder="Password"
@@ -38,8 +58,11 @@ const Resetpassword = () => {
 
             <div className="senha-field ct-input">
               <label htmlFor="senha-entrar">Repeat Password</label>
+              <span onClick={handleToggle}>
+                <Icon icon={icon} size={20} />
+              </span>
               <input
-                type="password"
+                type={type}
                 id="senha-entrar"
                 name="senha-entrar"
                 placeholder="Repeat Password"
