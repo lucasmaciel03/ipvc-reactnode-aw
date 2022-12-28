@@ -8,9 +8,6 @@ import Footer from "./components/Client/Footer/Footer.jsx";
 import Register from "./components/Client/Register/Register.jsx";
 import Resetpassword from "./components/Client/ResetPassword/Resetpassword.jsx";
 
-// eslint-disable-next-line
-import "swiper/css/bundle";
-
 function App() {
   return (
     <div>
