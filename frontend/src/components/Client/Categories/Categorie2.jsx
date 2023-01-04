@@ -26,7 +26,7 @@ const Categorie2 = () => {
 
   useEffect(() => {
     getCategories();
-  }, []);
+  }, [categories]);
   
   return (
     <div className="categories">
@@ -41,7 +41,7 @@ const Categorie2 = () => {
           dragConstraints={{ right: 0, left: -width }}
         >
           {categories.map((category) => (
-            <motion.div className="item" >
+            <motion.div className="item"  key={category.id}>
               <p className="itemcategory">{category.name}</p>
             </motion.div>
           ))}
