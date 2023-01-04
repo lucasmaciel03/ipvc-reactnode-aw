@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+import Sequelize from "sequelize";
 import { dbInstance } from "../config/db.js";
 
 const FilmModel = dbInstance.define(
@@ -9,40 +9,56 @@ const FilmModel = dbInstance.define(
             autoIncrement: true,
             primaryKey: true,
         },
-        id_category:{
+        categoryId: {
             type: Sequelize.INTEGER,
-            references: {
+            allowNull: false,
+            references:{
                 model: 'categories',
                 key: 'id'
-            }
+            },
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
         },
-        title: {
+        name: {
             type: Sequelize.STRING,
             allowNull: false,
         },
         description: {
-            type: Sequelize.STRING,
+            type: Sequelize.TEXT,
             allowNull: false,
         },
-        image: {
-            type: Sequelize.BLOB,
+        releaseDate: {
+            type: Sequelize.DATE,
             allowNull: false,
         },
-        price: {
+        time: {
             type: Sequelize.INTEGER,
             allowNull: false,
         },
-        isAvailable: {
+        likes: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            defaultValue: 0,
+        },
+        image: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        rentPrice: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+        },
+        isRent: {
+            type: Sequelize.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        isVisisble: {
             type: Sequelize.BOOLEAN,
             allowNull: false,
             defaultValue: true,
         },
-        isVisible: {
-            type: Sequelize.BOOLEAN,
-            allowNull: false,
-            defaultValue: true,
-        }
-    },
+    }
 );
 
 export { FilmModel };
