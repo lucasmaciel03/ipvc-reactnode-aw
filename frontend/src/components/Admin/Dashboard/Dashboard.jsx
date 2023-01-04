@@ -34,33 +34,18 @@ function Dashboard() {
               <h3>Clientes</h3>
             </Link>
             <Link to="/pedidos">
-              <span className="material-icons-sharp">receipt_long</span>
+              <span className="material-icons-sharp">movie_filter_outline</span>
               <h3>Pedidos</h3>
             </Link>
             <Link to="/analise">
-              <span className="material-icons-sharp">insights</span>
+              <span className="material-icons-sharp">tv</span>
               <h3>Analise</h3>
             </Link>
             <Link to="/mensagens">
-              <span className="material-icons-sharp">mail_outline</span>
+              <span className="material-icons-sharp">category</span>
               <h3>Menssagens </h3>
             </Link>
-            <Link to="/produtos">
-              <span className="material-icons-sharp">inventory</span>
-              <h3>Produtos</h3>
-            </Link>
-            <Link to="/relatorios">
-              <span className="material-icons-sharp">report_gmailerrorred</span>
-              <h3>Relatórios</h3>
-            </Link>
-            <Link to="/configuracoes">
-              <span className="material-icons-sharp">settings</span>
-              <h3>Configurações</h3>
-            </Link>
-            <Link to="/add-produto">
-              <span className="material-icons-sharp">add</span>
-              <h3>Add Produto</h3>
-            </Link>
+           
             <Link to="/sair">
               <span className="material-icons-sharp">logout</span>
               <h3>Sair</h3>
