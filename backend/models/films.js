@@ -9,6 +9,13 @@ const FilmModel = dbInstance.define(
             autoIncrement: true,
             primaryKey: true,
         },
+        id_category:{
+            type: Sequelize.INTEGER,
+            references: {
+                model: 'categories',
+                key: 'id'
+            }
+        },
         title: {
             type: Sequelize.STRING,
             allowNull: false,
@@ -17,36 +24,25 @@ const FilmModel = dbInstance.define(
             type: Sequelize.STRING,
             allowNull: false,
         },
-        id_category: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: "categories",
-                key: "id",
-            },
+        image: {
+            type: Sequelize.BLOB,
+            allowNull: false,
         },
         price: {
             type: Sequelize.INTEGER,
             allowNull: false,
         },
-        duration: {
-            type: Sequelize.INTEGER,
-            allowNull: false,
-        },
-        image: {
-            type: Sequelize.STRING,
-            allowNull: false,
-        },
-        rating: {
-            type: Sequelize.INTEGER,
-            allowNull: false,
-            defaultValue: 0,
-        },
-        available: {
+        isAvailable: {
             type: Sequelize.BOOLEAN,
             allowNull: false,
             defaultValue: true,
         },
-    }
+        isVisible: {
+            type: Sequelize.BOOLEAN,
+            allowNull: false,
+            defaultValue: true,
+        }
+    },
 );
 
 export { FilmModel };
