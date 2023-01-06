@@ -52,6 +52,22 @@ body {
 .btn-user {
   width: 120px;
   border-right: 1px solid #395b64;
-  background-color: transparent;
+  background-color: #f4f7f8;
   color: #395b64;
+}
+
+.btn-user:hover {
+  background-color: #395b64;
+  color: #f4f7f8;
+}
+
+.info-box {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.active {
+  background-color: #395b64;
+  color: #f4f7f8;
 }

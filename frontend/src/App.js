@@ -9,6 +9,7 @@ import Register from "./components/Client/Register/Register.jsx";
 import Resetpassword from "./components/Client/ResetPassword/Resetpassword.jsx";
 import Movierent from "./components/Client/Movierent/Movierent.jsx";
 import Userpage from "./components/Client/Userpage/Userpage.jsx";
+import Informationuser from "./components/Client/InformationUser/Informationuser.jsx";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/resetpassword" element={<Resetpassword />}></Route>
         <Route path="/movierent" element={<Movierent />}></Route>
         <Route path="/userpage" element={<Userpage />}></Route>
+        <Route path="/informationuser" element={<Informationuser />}></Route>
       </Routes>
       <Footer></Footer>
     </div>
