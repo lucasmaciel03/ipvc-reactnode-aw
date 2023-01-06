@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  flex-wrap: wrap;
+}
+
+body {
+  width: 90%;
+  margin: auto;
+}
+
+.userpage {
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userpage-text {
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: #f5f7f8;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../../images/greenarrow.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.info-box {
+  width: 100%;
+  height: 50vh;
+  background-color: #395b64;
+  border: 1px solid #f4f7f8;
+}
+
+.nav-btns {
+  width: 100%;
+  height: 8vh;
+  background-color: #f4f7f8;
+  border-top: 1px solid #f4f7f8;
+  border-left: 1px solid #f4f7f8;
+  border-right: 1px solid #f4f7f8;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-user {
+  width: 120px;
+  border-right: 1px solid #395b64;
+  background-color: transparent;
+  color: #395b64;
+}
