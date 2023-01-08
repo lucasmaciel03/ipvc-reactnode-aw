@@ -10,6 +10,8 @@ import Resetpassword from "./components/Client/ResetPassword/Resetpassword.jsx";
 import Movierent from "./components/Client/Movierent/Movierent.jsx";
 import Userpage from "./components/Client/Userpage/Userpage.jsx";
 import Informationuser from "./components/Client/InformationUser/Informationuser.jsx";
+import Movielike from "./components/Client/MovieLike/Movielike.jsx";
+import Serielike from "./components/Client/SeriesLike/Serieslike.jsx";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/movierent" element={<Movierent />}></Route>
         <Route path="/userpage" element={<Userpage />}></Route>
         <Route path="/informationuser" element={<Informationuser />}></Route>
+        <Route path="/movielike" element={<Movielike />}></Route>
+        <Route path="/serielike" element={<Serielike />}></Route>
       </Routes>
       <Footer></Footer>
     </div>

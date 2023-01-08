@@ -33,9 +33,12 @@ body {
 
 .info-box {
   width: 100%;
-  height: 50vh;
+  height: auto;
   background-color: #395b64;
   border: 1px solid #f4f7f8;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
 }
 
 .nav-btns {
@@ -59,12 +62,6 @@ body {
 .btn-user:hover {
   background-color: #395b64;
   color: #f4f7f8;
-}
-
-.info-box {
-  display: flex;
-  justify-content: center;
-  padding: 30px;
 }
 
 .active {

@@ -1,40 +1,54 @@
 import React from "react";
 import Informationuser from "../InformationUser/Informationuser";
+import Movielike from "../MovieLike/Movielike";
+import Serielike from "../SeriesLike/Serieslike.jsx";
+import History from "../HistoryRent/Historyrent.jsx";
 import "./userpage.css";
+import { useState } from "react";
 
-function activateBtn() {
-  var btn = document.getElementById("myBtn");
-  btn.classList.toggle("active");
-}
+const Userpage = () => {
+  const [isHidden, setIsHidden] = useState(true);
+  function toggleHiddenuserinfo() {
+    setIsHidden(!isHidden);
+  }
 
-function desactivateBtn() {
-  var btn = document.getElementById("myBtn");
-  btn.classList.remove("active");
-}
+  function toggleHiddenmovielike() {
+    setIsHidden(!isHidden);
+  }
 
-const userpage = () => {
+  function toggleHiddenserielike() {
+    setIsHidden(!isHidden);
+  }
+
+  function toggleHiddenhistory() {
+    setIsHidden(!isHidden);
+  }
+
   return (
     <div className="userpage">
       <div className="userpage-text">
         <span>André</span>
       </div>
       <div className="nav-btns">
-        <button id="myBtn" onClick={activateBtn} className="btn-user">
+        <button className="btn-user" onClick={toggleHiddenuserinfo}>
           Information
         </button>
-        <button   className="btn-user">Movies</button>
-        <button id="myBtn" className="btn-user">
+        <button className="btn-user" onClick={toggleHiddenmovielike}>
+          Movies
+        </button>
+        <button className="btn-user" onClick={toggleHiddenserielike}>
           Series
         </button>
-        <button id="myBtn" className="btn-user">
+        <button className="btn-user" onClick={toggleHiddenhistory}>
           History
         </button>
       </div>
-      <div className="info-box">
-        <Informationuser></Informationuser>
-      </div>
+      <div className="info-box">{!isHidden && <Informationuser />}</div>
+      <div className="info-box">{!isHidden && <Serielike />}</div>
+      <div className="info-box">{!isHidden && <Movielike />}</div>
+      <div className="info-box">{!isHidden && <History />}</div>
     </div>
   );
 };
 
-export default userpage;
+export default Userpage;

@@ -1,0 +1,8 @@
+.series-like {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title-series-like {
+  color: #f4f7f8;
+}
