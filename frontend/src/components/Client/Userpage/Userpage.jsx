@@ -7,38 +7,7 @@ import "./userpage.css";
 import { useState } from "react";
 
 const Userpage = () => {
-  const [isHiddenUserInfo, setIsHiddenUserInfo] = useState(true);
-  const [isHiddenMovieLike, setIsHiddenMovieLike] = useState(true);
-  const [isHiddenSerieLike, setIsHiddenSerieLike] = useState(true);
-  const [isHiddenHistory, setIsHiddenHistory] = useState(true);
-
-  function toggleHiddenUserInfo() {
-    setIsHiddenUserInfo(!isHiddenUserInfo);
-    setIsHiddenMovieLike(true);
-    setIsHiddenSerieLike(true);
-    setIsHiddenHistory(true);
-  }
-
-  function toggleHiddenMovieLike() {
-    setIsHiddenMovieLike(!isHiddenMovieLike);
-    setIsHiddenUserInfo(true);
-    setIsHiddenSerieLike(true);
-    setIsHiddenHistory(true);
-  }
-
-  function toggleHiddenSerieLike() {
-    setIsHiddenSerieLike(!isHiddenSerieLike);
-    setIsHiddenUserInfo(true);
-    setIsHiddenMovieLike(true);
-    setIsHiddenHistory(true);
-  }
-
-  function toggleHiddenHistory() {
-    setIsHiddenHistory(!isHiddenHistory);
-    setIsHiddenUserInfo(true);
-    setIsHiddenMovieLike(true);
-    setIsHiddenSerieLike(true);
-  }
+  const [currentTab, setCurrentTab] = useState("info");
 
   return (
     <div className="userpage">
@@ -46,24 +15,24 @@ const Userpage = () => {
         <span>André</span>
       </div>
       <div className="nav-btns">
-        <button className="btn-user" onClick={toggleHiddenUserInfo}>
+        <button className="btn-user" onClick={() => setCurrentTab("info")}>
           Information
         </button>
-        <button className="btn-user" onClick={toggleHiddenMovieLike}>
+        <button className="btn-user" onClick={() => setCurrentTab("movies")}>
           Movies
         </button>
-        <button className="btn-user" onClick={toggleHiddenSerieLike}>
+        <button className="btn-user" onClick={() => setCurrentTab("series")}>
           Series
         </button>
-        <button className="btn-user" onClick={toggleHiddenHistory}>
+        <button className="btn-user" onClick={() => setCurrentTab("history")}>
           History
         </button>
       </div>
       <div className="info-box">
-        {!isHiddenUserInfo && <Informationuser />}
-        {!isHiddenSerieLike && <Serielike />}
-        {!isHiddenMovieLike && <Movielike />}
-        {!isHiddenHistory && <History />}
+        {currentTab === "info" && <Informationuser />}
+        {currentTab === "movies" && <Serielike />}
+        {currentTab === "series" && <Movielike />}
+        {currentTab === "history" && <History />}
       </div>
     </div>
   );

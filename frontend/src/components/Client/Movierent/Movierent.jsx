@@ -46,9 +46,6 @@ const Movierent = () => {
                     <b>Time:</b> 2h:13m:21s
                   </p>
                 </label>
-                <label htmlfor="movie-price">
-                  <p className="movie-price">7.50 €</p>
-                </label>
               </div>
             </div>
             <div className="rent-movie">
