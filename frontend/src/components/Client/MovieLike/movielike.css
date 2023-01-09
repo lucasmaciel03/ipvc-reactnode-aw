@@ -1,0 +1,9 @@
+.title-movies-like {
+  color: white;
+}
+
+.movies-like {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

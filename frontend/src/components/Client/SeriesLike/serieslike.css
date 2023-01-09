@@ -1,6 +1,7 @@
 .series-like {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .title-series-like {
