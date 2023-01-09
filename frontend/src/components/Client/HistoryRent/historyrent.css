@@ -1,0 +1,9 @@
+.title-history-rent {
+  color: white;
+}
+
+.history-rent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
