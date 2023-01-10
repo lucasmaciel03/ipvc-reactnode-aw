@@ -44,10 +44,9 @@ const Header = ({ onShow }) => {
 
         <nav className={classes.nav}>
           <a href="#">Filmes</a>
-          <a href="#">Séries</a>
         </nav>
 
-        <button className={classes.user} href="#">
+        <button className={classes.user}>
           <IconUser />
         </button>
 
