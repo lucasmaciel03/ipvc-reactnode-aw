@@ -34,15 +34,41 @@ export const createFilm = async (req, res) => {
     }
 }
 
-// get all films and replace categoryId for category name
-export const getAllFilms = async (req, res) => {
+//get all films and replace categoryId with category name
+export const getAllFilmsWithCategoryName = async (req, res) => {
     const films = await FilmModel.findAll({
-        include: {
-            model: CategoryModel,
-            attributes: ['name'],
-        },
     });
-    res.json(films);
+
+    console.log(films)
+
+    const films2 = await Promise.all(films.map(async (film) => {
+        if (film.categoryId !== undefined && film.categoryId !== null) {
+            // verify if categoryId is not null
+            const category = await CategoryModel.findOne({
+                where: {
+                    id: film.categoryId
+                },
+                attributes: {
+                    exclude: ['id']
+                }
+            });
+
+            if (category !== null) {
+                // verify if category exists
+                return {
+                    ...film.dataValues,
+                    category: category.name
+                }
+            }
+        }
+    }));
+
+    return res.status(200).json({
+        films: films2
+    });
 }
+
+
+
 
 
