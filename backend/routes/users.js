@@ -2,17 +2,18 @@ import Router from "express";
 import {
     createUser,
     getAllUsers,
-    getAllAdmins
+    getAllAdmins,
+    updateAdmin,
 } from "../controllers/users.js";
-import { authRequired } from "../utils/jwt.js";
-
 
 const userRoutes = Router();
 
 userRoutes.post("/createUser", createUser);
 
-userRoutes.get("/getAllUsers", authRequired, getAllUsers);
+userRoutes.get("/getAllUsers", getAllUsers);
 
-userRoutes.get("/getAllAdmins", authRequired, getAllAdmins);
+userRoutes.get("/getAllAdmins", getAllAdmins);
+
+userRoutes.put("/updateAdmin/:id", updateAdmin);
 
 export { userRoutes };

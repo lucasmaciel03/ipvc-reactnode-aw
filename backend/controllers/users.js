@@ -49,4 +49,36 @@ export const getAllAdmins = async (req, res) => {
     res.json(admins);
 }
 
+// update user to admin if isAdmin = false, else update is Admin to true, return message user.name becomer a Admin and return user informations, if not found a user return 404 not found message
+export const updateAdmin = async (req, res) => {
+    const { id } = req.params;
+    const user = await UserModel.findOne({
+        where: {
+            id
+        }
+    });
+    if (user) {
+        if (user.isAdmin === false) {
+            await UserModel.update({
+                isAdmin: true
+            }, {
+                where: {
+                    id
+                }
+            });
+            res.json(user.username + ' became a Admin');
+        } else {
+            await UserModel.update({
+                isAdmin: false
+            }, {
+                where: {
+                    id
+                }
+            });
+            res.json(user.username + ' is not an Admin anymore');
+        }
+    } else {
+        res.status(404).json('User not found');
+    }
+}
 
