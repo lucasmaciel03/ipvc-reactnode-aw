@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from "react";
 import { AlertContext } from "../../../context/AlertContext";
 import { CartContext } from "../../../context/CartContext";
 import classes from "./ProductItem.module.css";
+import { ReactComponent as IconHeart } from "../../../assets/heart.svg";
 
 const ProdutoItem = ({ name, img, price, description }) => {
   const [amount, setAmount] = useState(1);
@@ -22,7 +23,7 @@ const ProdutoItem = ({ name, img, price, description }) => {
       img: img,
     });
 
-    showAlert(`${amount} "${name}" adicionado(s) ao carrinho`);
+    showAlert(`"${name}" adicionado(s) ao carrinho`);
   };
 
   return (
@@ -40,19 +41,10 @@ const ProdutoItem = ({ name, img, price, description }) => {
 
         <div className={classes.flex}>
           <p className={classes.price}>€ {price}</p>
-          <form className={classes.amountForm}>
-            <label>
-              <span>amount</span>
-              <input
-                type="number"
-                name="amount"
-                id={`amount-${name}`}
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                step="1"
-                min="1"
-              />
-            </label>
+          <form className={classes.addForm}>
+            <button className={classes.favAdd} title="adicionar aos favoritos">
+              <IconHeart />
+            </button>
             <button
               className={classes.btnAdd}
               onClick={addItemToCartHandler}

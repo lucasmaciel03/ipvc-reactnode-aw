@@ -19,6 +19,8 @@
   --border: 2px solid var(--cor-7);
   scrollbar-color: #b4b4b4 var(--cor-1);
   scrollbar-width: thin;
+  --vermelho: #f83131;
+  --vermelho-claro: #ee626c;
 }
 
 .darkMode {

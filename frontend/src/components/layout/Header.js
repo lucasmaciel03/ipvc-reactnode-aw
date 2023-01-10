@@ -43,8 +43,8 @@ const Header = ({ onShow }) => {
         <SearchField />
 
         <nav className={classes.nav}>
-          <a>Filmes</a>
-          <a>Séries</a>
+          <a href="#">Filmes</a>
+          <a href="#">Séries</a>
         </nav>
 
         <button className={classes.user} href="#">
