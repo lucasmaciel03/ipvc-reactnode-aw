@@ -7,11 +7,19 @@ import { ReactComponent as IconUser } from "../../assets/user.svg";
 import { CartContext } from "../../context/CartContext";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import SearchField from "./SearchField";
+import Modal from "../user/UserModal";
 
 const Header = ({ onShow }) => {
   const { itemsCart } = useContext(CartContext);
   const { changeMode, isDarkMode } = useContext(ColorModeContext);
   const [pageScrolled, setPageScrolled] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOutsideClick = (event) => {
+    if (event.target === event.currentTarget) {
+      setOpenModal(false);
+    }
+  };
 
   const totalItemsInTheCart = itemsCart.items.reduce((prev, curr) => {
     return prev + curr.amount;
@@ -45,11 +53,20 @@ const Header = ({ onShow }) => {
         <nav className={classes.nav}>
           <a href="#">Filmes</a>
         </nav>
-
-        <button className={classes.user}>
+        <button
+          className={classes.user}
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        >
           <IconUser />
         </button>
-
+        {openModal && (
+          <div onClick={handleOutsideClick}>
+            <button onClick={() => setOpenModal(false)}>Close Modal</button>
+            <Modal />
+          </div>
+        )}
         <button className={classes.cart} onClick={onShow}>
           <span className={classes.amount}>
             <IconCart />
