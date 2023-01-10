@@ -1,21 +1,24 @@
 .modaluserbackground {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(200, 200, 200);
   position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  max-width: 650px;
+  width: 100%;
+  padding: 0 1rem;
 }
 
 .modalcontainer {
-  width: 500px;
-  height: 400px;
-  border-radius: 12px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  padding: 25px;
+  background: var(--cor-1);
+  color: var(--cor-6);
+  transform: translateY(-1rem);
+  animation: 0.1s show forwards;
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+  width: 100%;
 }
 
 .modalcontainer .name-modaluser {
