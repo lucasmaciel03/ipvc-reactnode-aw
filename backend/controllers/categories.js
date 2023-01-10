@@ -3,7 +3,6 @@ import { CategoryModel } from '../models/categories.js';
 // get all categories from model and dont return the id
 export const getAllCategories = async (req, res) => {
     const categories = await CategoryModel.findAll({
-        attributes: ['name']
     });
     res.json(categories);
 }
