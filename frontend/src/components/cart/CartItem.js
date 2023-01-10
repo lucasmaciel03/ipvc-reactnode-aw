@@ -21,26 +21,11 @@ const CarItem = ({ name, price, img, amount, updateAmount, removeItem }) => {
       </div>
       <div className={classes.infos}>
         <p>{name}</p>
-        <p className={classes.price}>R$ {Number(price * amount).toFixed(2)}</p>
-        <p>
-          {amount} unidade(s) de R$ {Number(price).toFixed(2)}
-        </p>
+        <p className={classes.price}>€ {Number(price * amount).toFixed(2)}</p>
         <button className={classes.btn} onClick={removeItemFromCart}>
           Excluir item
         </button>
       </div>
-      <form>
-        <label htmlFor="quantidade">qt.</label>
-        <input
-          type="number"
-          id="quantidade"
-          name="quantidade"
-          min="1"
-          step="1"
-          value={newAmount}
-          onChange={updateAmountHandler}
-        />
-      </form>
     </li>
   );
 };

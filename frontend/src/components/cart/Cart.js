@@ -47,7 +47,7 @@ const Cart = ({ onClose, onShowFinal }) => {
       {itemsCart.items.length ? (
         <div className={classes.total}>
           <p>
-            Subtotal: <span>R$ {Number(itemsCart.total).toFixed(2)}</span>
+            Subtotal: <span>€ {Number(itemsCart.total).toFixed(2)}</span>
           </p>
           <WrapperButton onClick={showFinalModalHandler}>
             Finalizar compra
