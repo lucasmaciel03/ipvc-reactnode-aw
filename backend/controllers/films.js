@@ -1,60 +1,48 @@
 import { FilmModel } from '../models/films.js';
 import { CategoryModel } from '../models/categories.js';
 
-import path from 'path';
-import fs from 'fs';
-
+// create new film, with this verifications, verify if name film already exit, if category id exist, verify if time > 0, verify if rent price > 0, save film in database
 export const createFilm = async (req, res) => {
-  try {
-    const {
-      categoryId,
-      name,
-      description,
-      releaseDate,
-      time,
-      image,
-      rentPrice,
-    } = req.body;
-
-    // Verifica se o nome de filme já está sendo utilizado
-    const filmWithSameName = await FilmModel.findOne({ where: { name } });
-    if (filmWithSameName) {
-      return res.status(400).send({ error: 'Film name already in use' });
+    const { name, categoryId, description, releaseDate, time, image, rentPrice } = req.body;
+    try {
+        const film = await FilmModel.findOne({ where: { name } });
+        if (film) {
+            return res.status(400).json({ message: 'Film already exist' });
+        }
+        const category = await CategoryModel.findOne({ where: { id: categoryId } });
+        if (!category) {
+            return res.status(400).json({ message: 'Category not exist' });
+        }
+        if (time <= 0) {
+            return res.status(400).json({ message: 'Time must be greater than 0' });
+        }
+        if (rentPrice <= 0) {
+            return res.status(400).json({ message: 'Rent price must be greater than 0' });
+        }
+        await FilmModel.create({
+            name,
+            categoryId,
+            description,
+            releaseDate,
+            time,
+            image,
+            rentPrice,
+        });
+        return res.status(201).json({ message: 'Film created' });
+    } catch (error) {
+        return res.status(500).json({ message: 'Server error' });
     }
+}
 
-    // Verifica se a categoria existe
-    const category = await CategoryModel.findByPk(categoryId);
-    if (!category) {
-      return res.status(400).send({ error: 'Category not found' });
-    }
-
-    // Verifica se o tempo do filme não é menor ou igual a 0
-    if (time <= 0) {
-      return res.status(400).send({ error: 'Invalid film time' });
-    }
-
-    // Verifica se o Rentprice não é menor ou igual a 0
-    if (rentPrice <= 0) {
-      return res.status(400).send({ error: 'Invalid film rent price' });
-    }
-
-    // Guarda a imagem tanto na base de dados como numa pasta de imagens
-    const imagePath = path.join(__dirname, '../public/images', image.name);
-    fs.writeFileSync(imagePath, image.data);
-
-    const film = await FilmModel.create({
-      categoryId,
-      name,
-      description,
-      releaseDate,
-      time,
-      image: image.name,
-      rentPrice,
+// get all films and replace categoryId for category name
+export const getAllFilms = async (req, res) => {
+    const films = await FilmModel.findAll({
+        include: {
+            model: CategoryModel,
+            attributes: ['name'],
+        },
     });
+    res.json(films);
+}
 
-    return res.status(201).send({ film });
-  } catch (error) {
-    return res.status(500).send({ error: error.message });
-  }
-};
 
