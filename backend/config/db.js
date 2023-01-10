@@ -2,9 +2,9 @@ import Sequelize from "sequelize";
 
 const dbInstance = new Sequelize({
   host: "localhost",
-  port: 3306,
-  username: "myUsername",
-  password: "MySecretPassword",
+  port: 8886,
+  username: "root",
+  password: "root",
   database: "db_video_club",
   dialect: "mysql",
 });
