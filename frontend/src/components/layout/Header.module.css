@@ -37,6 +37,21 @@
   margin-right: 0.5rem;
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  text-align: right;
+  font-weight: 700;
+  margin-left: auto;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.nav a {
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
 .cart {
   display: flex;
   align-items: center;
@@ -44,10 +59,15 @@
   transition: 0.1s;
   text-align: right;
   font-weight: 700;
-  margin-left: auto;
+  margin-left: 1rem;
   margin-right: 1rem;
   text-transform: uppercase;
   font-size: 12px;
+}
+
+.user {
+  display: flex;
+  margin-left: 1rem;
 }
 
 .cart:hover,
@@ -58,7 +78,6 @@
 .cart svg {
   transform: scale(1.3);
   width: 30px;
-  margin-left: 0.5rem;
 }
 
 .amount {
@@ -128,18 +147,29 @@
   .header .container {
     height: 7rem;
     display: grid;
-    grid-template-columns: 1fr 4.5rem 3rem;
+    grid-template-columns: 1fr 4.5rem 4rem;
     padding: 0.5rem 1rem;
   }
   .logo,
   .cart,
+  .user,
+  .nav,
   .btnColorMode {
     grid-row: 1;
+  }
+
+  .nav {
+    margin-left: -40px;
+  }
+
+  .nav a {
+    margin-right: 10px;
   }
 
   .cart {
     margin-left: initial;
   }
+
   .btnColorMode {
     margin-left: auto;
   }

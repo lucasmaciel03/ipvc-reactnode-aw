@@ -3,7 +3,7 @@ import classes from "./Header.module.css";
 import { ReactComponent as IconCart } from "../../assets/cart.svg";
 import { ReactComponent as IconSun } from "../../assets/sun.svg";
 import { ReactComponent as IconMoon } from "../../assets/moon.svg";
-import { ReactComponent as LogoSvg } from "../../assets/logo.svg";
+import { ReactComponent as IconUser } from "../../assets/user.svg";
 import { CartContext } from "../../context/CartContext";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import SearchField from "./SearchField";
@@ -38,12 +38,18 @@ const Header = ({ onShow }) => {
       className={`${classes.header} ${pageScrolled ? classes.scroll : ""}`}
     >
       <div className={`container ${classes.container}`}>
-        <span className={classes.logo}>
-          <LogoSvg />
-          Cactus
-        </span>
+        <span className={classes.logo}>MovieAL</span>
 
         <SearchField />
+
+        <nav className={classes.nav}>
+          <a>Filmes</a>
+          <a>Séries</a>
+        </nav>
+
+        <button className={classes.user} href="#">
+          <IconUser />
+        </button>
 
         <button className={classes.cart} onClick={onShow}>
           <span className={classes.amount}>
@@ -51,7 +57,6 @@ const Header = ({ onShow }) => {
             <span className={classes.value}>{totalItemsInTheCart}</span>
           </span>
         </button>
-
         <button
           className={classes.btnColorMode}
           onClick={changeMode}
