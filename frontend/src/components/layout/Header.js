@@ -49,10 +49,6 @@ const Header = ({ onShow }) => {
         <span className={classes.logo}>MovieAL</span>
 
         <SearchField />
-
-        <nav className={classes.nav}>
-          <a href="#">Filmes</a>
-        </nav>
         <button
           className={classes.user}
           onClick={() => {

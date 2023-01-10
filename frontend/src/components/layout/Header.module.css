@@ -37,21 +37,6 @@
   margin-right: 0.5rem;
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  text-align: right;
-  font-weight: 700;
-  margin-left: auto;
-  text-transform: uppercase;
-  font-size: 1rem;
-}
-
-.nav a {
-  margin-right: 2rem;
-  cursor: pointer;
-}
-
 .cart {
   display: flex;
   align-items: center;
@@ -68,6 +53,7 @@
 .user {
   display: flex;
   margin-left: 1rem;
+  margin-left:auto;
 }
 
 .cart:hover,
@@ -153,17 +139,8 @@
   .logo,
   .cart,
   .user,
-  .nav,
   .btnColorMode {
     grid-row: 1;
-  }
-
-  .nav {
-    margin-left: -40px;
-  }
-
-  .nav a {
-    margin-right: 10px;
   }
 
   .cart {
