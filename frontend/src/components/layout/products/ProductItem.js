@@ -3,7 +3,7 @@ import { AlertContext } from "../../../context/AlertContext";
 import { CartContext } from "../../../context/CartContext";
 import classes from "./ProductItem.module.css";
 import { ReactComponent as IconHeart } from "../../../assets/heart.svg";
-
+import { ReactComponent as IconFilled } from "../../../assets/heartfilled.svg";
 const ProdutoItem = ({ name, img, price, description }) => {
   const [amount, setAmount] = useState(1);
   const animaTimeout = useRef();
@@ -26,10 +26,18 @@ const ProdutoItem = ({ name, img, price, description }) => {
     showAlert(`"${name}" adicionado(s) ao carrinho`);
   };
 
+  const [isFav, setIsFav] = useState(false);
   const favAdd = (e) => {
+    setIsFav(!isFav);
     e.preventDefault();
     clearTimeout(animaTimeout.current);
-    showAlert(`"${name}" adicionado aos favoritos`);
+    if(isFav){
+      setIsFav(false);
+      showAlert(`"${name}" foi removido dos favoritos`);
+    }else{
+      setIsFav(true);
+      showAlert(`"${name}" adicionado aos favoritos`);
+    }
   };
 
   return (
@@ -53,7 +61,7 @@ const ProdutoItem = ({ name, img, price, description }) => {
               onClick={favAdd}
               title="adicionar aos favoritos"
             >
-              <IconHeart />
+              {isFav ? <IconFilled/> : <IconHeart />}
             </button>
             <button
               className={classes.btnAdd}
