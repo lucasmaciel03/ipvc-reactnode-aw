@@ -1,13 +1,13 @@
 import Router from "express";
 import {
     createFilm,
-    getAllFilms
+    getAllFilmsWithCategoryName
 } from "../controllers/films.js"
 
 const filmRoutes = Router();
 
 filmRoutes.post("/createFilm", createFilm);
 
-filmRoutes.get("/getAllFilms", getAllFilms);
+filmRoutes.get("/getAllFilmsWithCategoryName", getAllFilmsWithCategoryName);
 
 export { filmRoutes };

@@ -2,24 +2,17 @@ import { LikeModel } from '../models/userLikes.js'
 import { FilmModel } from '../models/films.js'
 import { UserModel } from '../models/users.js'
 
-// create new like
+// create new like verify if user and film exist
 export const createLike = async (req, res) => {
-    const { userId, filmId } = req.body;
-    try {
-        const user = await UserModel.findOne({ where: { id: userId } });
-        if (!user) {
-            return res.status(400).json({ message: 'User not exist' });
-        }
-        const film = await FilmModel.findOne({ where: { id: filmId } });
-        if (!film) {
-            return res.status(400).json({ message: 'Film not exist' });
-        }
-        await Likes.create({
-            userId,
-            filmId
-        });fi
-        return res.status(201).json({ message: 'Like created' });
-    } catch (error) {
-        return res.status(500).json({ message: 'Server error' });
+    const { userId, filmId } = req.body
+    const user = await UserModel. findById(userId )
+    const film = await FilmModel. findById (filmId)
+    if (user && film) {
+        const like = new LikeModel({ userId, filmId })
+        await like.save()
+        res.status(201).json({ message: 'Like created' })
     }
-}
+
+    res.status(404).json({ message: 'User or film not found' })
+
+    
