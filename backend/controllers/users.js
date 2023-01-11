@@ -30,10 +30,7 @@ export const createUser = async (req, res) => {
 // get all users who have isAdmin = 0 dont return the password and id
 export const getAllUsers = async (req, res) => {
     const users = await UserModel.findAll({
-        attributes: ['username', 'rentals'],
-        where: {
-            isAdmin: 0
-        }
+
     });
     res.json(users);
 }
