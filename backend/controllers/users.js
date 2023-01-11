@@ -27,6 +27,7 @@ export const createUser = async (req, res) => {
     const asd = await UserModel.create(newUser);
     const { password, ...user } = asd.dataValues;
 
+
     const token = createToken(user);
 
     res.send(token);

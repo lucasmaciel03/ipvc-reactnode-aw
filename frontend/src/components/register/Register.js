@@ -1,35 +1,48 @@
 import React, { useState } from "react";
 import "./Register.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
-// import Stack from '@mui/material/Stack';
-// import Snackbar from '@mui/material/Snackbar';
-// import Alert from '@mui/material/Alert';
 import {
   Snackbar,
   Alert
 } from "@mui/material"
-
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Register() {
+  const [openToast1, setOpenToast1] = useState(false);
   const [openToast2, setOpenToast2] = useState(false);
+  const [openToast3, setOpenToast3] = useState(false);
+  const [openToast4, setOpenToast4] = useState(false);
+  const [openToast5, setOpenToast5] = useState(false);
+  const [openToast6, setOpenToast6] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
 
+  // create handle close for all openToast = true to false
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
+    } else {
+      setOpenToast1(false);
+      setOpenToast2(false);
+      setOpenToast3(false);
+      setOpenToast4(false);
+      setOpenToast5(false);
+      setOpenToast6(false);
     }
-
-    setOpenToast2(false);
   };
+
 
   const handleToggle = () => {
     if (type === "password") {
@@ -41,38 +54,49 @@ function Register() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(username, password, repeatPassword);
+
+    const user = {
+      username,
+      password,
+    }
+
+    // sen message if name and password are null
+    if (username === "" && password === "") {
+      setOpenToast4(true);
+      return;
+    }
+
+    //validate if password null
+    if (password === "") {
+      setOpenToast5(true);
+      return;
+    }
+
+    //validate if username null
+    if (username === "") {
+      setOpenToast6(true);
+      return;
+    }
 
     //validate password and repeat password
     if (password !== repeatPassword) {
-      console.log('----------------------------------------ENTREI------------------------')
       setOpenToast2(true);
       return;
     }
 
-    // call controller to register user
-    fetch("http://localhost:4243/api/users/createUser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.status === "success") {
-          alert("✅ User created");
-        } else {
-          alert("❌ User not created");
-        }
-      });
+    // before create new user verify if username already exist if not exist show toast 3 and after 3 seconds redirect to login
+    await axios.post("http://localhost:4243/api/users/createUser", user);
+    setOpenToast3(true);
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
   };
+
+  if (isRegistered) {
+    return navigate("/");
+  }
 
   return (
     <>
@@ -139,11 +163,37 @@ function Register() {
           </div>
         </section>
       </div>
-      <Snackbar open={openToast2} autoHideDuration={2000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
-          Compra efetuada com Sucesso!
+      <Snackbar open={openToast1} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Username já existe!
         </Alert>
       </Snackbar>
+      <Snackbar open={openToast2} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Palavras-passe não coincidem!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={openToast3} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          Registado com sucesso!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={openToast4} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%"}}>
+          Preencha o seu nome e a palavra-passe!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={openToast5} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Preencha a sua palavra-passe!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={openToast6} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Preencha o seu nome!
+        </Alert>
+      </Snackbar>
+
     </>
   );
 }
