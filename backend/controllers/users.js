@@ -110,11 +110,11 @@ export const login = async (req, res) => {
             });
         }
         else {
-            res.status(401).json('Password incorrect');
+            res.status(401).json('Palavra Passe incorreta');
         }
     }
     else {
-        res.status(401).json('Username or password incorrect');
+        res.status(401).json('Desculpe, este Username não existe');
     }
 }
 

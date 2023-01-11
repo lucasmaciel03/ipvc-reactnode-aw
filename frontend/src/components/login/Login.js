@@ -6,8 +6,6 @@ import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import {
   Alert,
   Snackbar,
@@ -22,6 +20,28 @@ const Login = () => {
   const navigate = useNavigate();
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
+  const [openToast1, setOpenToast1] = useState(false);
+  const [openToast2, setOpenToast2] = useState(false);
+  const [openToast3, setOpenToast3] = useState(false);
+  const [openToast4, setOpenToast4] = useState(false);
+  const [openToast5, setOpenToast5] = useState(false);
+  const [openToast6, setOpenToast6] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    } else {
+      setOpenToast1(false);
+      setOpenToast2(false);
+      setOpenToast3(false);
+      setOpenToast4(false);
+      setOpenToast5(false);
+      setOpenToast6(false);
+    }
+  };
+
 
 
 
@@ -46,24 +66,43 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // if name is null return alert message
+    if (username === "") {
+      alert("Please enter your username");
+    }
+
+    // if password is null return alert message
+    if (password === "") {
+      alert("Please enter your password");
+    }
+
+    // if name and password are null
+    if (username === "" && password === "") {
+      alert("Please enter your username and password");
+    }
+
     const data = {
       username: username,
       password: password,
     };
 
-    axios.post('http://localhost:4243/api/users/auth', data)
-      .then((res) => {
-        console.log(res.data);
+    // login, verify if name exist if not exist return alert message, if exist verify if password is correct if not return alert message, if password is correct return alert message and after 3sec navigate to home page and set isLogged to true
+    axios.post("http://localhost:4243/api/users/auth", data).then((res) => {  
+      localStorage.setItem("token", res.data.token);
+      alert("Login successful");
+      setTimeout(() => {
+        navigate("/home");
         setIsLoggedIn(true);
-        // save token or user in local storage
-        localStorage.setItem('token', res.data.token);
-        // redirect to home page
-      })
-      .catch((err) => {
-        // if password was worn return error message
-        console.log(err);
-      });
-
+      }, 3000);
+    }
+    )
+    .catch((err) => {
+      if (err.response.status === 401) {
+        setErrorMessage(err.response.data);
+        setOpenToast6(true);
+      }
+    });
   };
 
   if (isLoggedIn) {
@@ -123,6 +162,36 @@ const Login = () => {
           </div>
         </section>
       </div>
+      <Snackbar open={openToast1} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Username já existe!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={openToast2} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Palavras-passe não coincidem!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={openToast3} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          Registado com sucesso!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={openToast4} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Preencha o seu nome e a palavra-passe!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={openToast5} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Preencha a sua palavra-passe!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={openToast6} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          {errorMessage}
+        </Alert>
+      </Snackbar>
     </>
   );
 };
