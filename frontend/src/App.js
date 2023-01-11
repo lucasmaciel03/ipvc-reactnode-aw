@@ -1,12 +1,16 @@
 import Header from "./components/layout/Header";
 import Products from "./components/layout/products/Products";
 import Cart from "./components/cart/Cart";
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import PurchaseSuccess from "./components/cart/finishedPurchase/PurchaseSuccess";
 import { ColorModeContext } from "./context/ColorModeContext";
 import "./App.css";
 import Alert from "./components/alert/Alert";
 import { AlertContext } from "./context/AlertContext";
+import Login from "./components/login/Login";
+import { Route, Routes } from "react-router-dom";
+import { Switch } from "react-router-dom";
+
 
 function App() {
   const [isCartVisible, setIsCartVisible] = useState(false);
@@ -27,23 +31,28 @@ function App() {
     setPurchaseFinishedModal(true);
   };
   return (
-    <>
-      <Alert alertIsShown={alertIsShown} content={alertContent} />
-      <div className={`app ${isDarkMode ? "darkMode" : ""}`}>
-        {isCartVisible && (
-          <Cart
-            onClose={closeCartHandler}
-            onShowFinal={showFinalModalHandler}
-          />
-        )}
-        {purchaseFinishedModal && (
-          <PurchaseSuccess onClose={closeFinalModalHandler} />
-        )}
-        <Header onShow={showCartHandler} />
-        <Products />
-      </div>
-    </>
-  );
+    <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={
+             <div className={`app ${isDarkMode ? "darkMode" : ""}`}>
+                <Alert alertIsShown={alertIsShown} content={alertContent} />
+                {isCartVisible && (
+                  <Cart
+                    onClose={closeCartHandler}
+                    onShowFinal={showFinalModalHandler}
+                  />
+                )}
+                {purchaseFinishedModal && (
+                  <PurchaseSuccess onClose={closeFinalModalHandler} />
+                )}
+                <Header onShow={showCartHandler} />
+                <Products />
+            </div>
+        } >
+        </Route>
+    </Routes>
+);
+
 }
 
 export default App;

@@ -21,6 +21,9 @@
   scrollbar-width: thin;
   --vermelho: #f83131;
   --vermelho-claro: #ee626c;
+  --bg-login: #fff;
+  --bg-input: #f5f7f880;
+  --border: #dfdfdf;
 }
 
 .darkMode {
