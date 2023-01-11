@@ -1,7 +1,7 @@
 import Header from "./components/layout/Header";
 import Products from "./components/layout/products/Products";
 import Cart from "./components/cart/Cart";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import PurchaseSuccess from "./components/cart/finishedPurchase/PurchaseSuccess";
 import { ColorModeContext } from "./context/ColorModeContext";
 import "./App.css";
@@ -10,6 +10,7 @@ import { AlertContext } from "./context/AlertContext";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import { Route, Routes } from "react-router-dom";
+import jwtDecode from "jwt-decode";
 
 
 function App() {
@@ -30,8 +31,20 @@ function App() {
   const showFinalModalHandler = () => {
     setPurchaseFinishedModal(true);
   };
+
+  useEffect(() => {
+    const hasToken = localStorage.getItem("token");
+    if (hasToken) {
+      const info = jwtDecode(hasToken);
+
+      // setUserType(info.type);
+      // console.log(info.idUser);
+    }
+  }, []);
   return (
+    
     <Routes>
+        <Route path="*" element={<h1>404 - Not Found</h1>} />
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={
