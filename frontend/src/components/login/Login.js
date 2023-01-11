@@ -16,8 +16,6 @@ import {
 import axios from "axios";
 
 const Login = () => {
-  const [openToast1, setOpenToast1] = useState(false);
-  const [open, setOpen] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,12 +23,6 @@ const Login = () => {
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setOpenToast1(false);
-  };
 
 
   const handleUsernameChange = (e) => {
@@ -69,7 +61,6 @@ const Login = () => {
       .catch((err) => {
         // if password was worn return error message
         console.log(err);
-        setOpenToast1(true);
       });
 
   };
@@ -131,12 +122,6 @@ const Login = () => {
           </div>
         </section>
       </div>
-
-      <Snackbar open={openToast1} autoHideDuration={2000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="warning" sx={{ width: "100%" }}>
-          Credenciais Erradas!
-        </Alert>
-      </Snackbar>
     </>
   );
 };
