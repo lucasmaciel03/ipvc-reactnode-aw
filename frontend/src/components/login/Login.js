@@ -56,6 +56,7 @@ const Login = () => {
         console.log(res.data);
         setIsLoggedIn(true);
         // save token or user in local storage
+        localStorage.setItem('token', res.data.token);
         // redirect to home page
       })
       .catch((err) => {
