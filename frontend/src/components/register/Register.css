@@ -126,21 +126,6 @@ form.ativo {
 input:focus {
   outline: 2px solid #4cbfa6;
 }
-/* 
-.submit {
-  width: 100%;
-  padding: 15px 10px;
-  background: #4cbfa6;
-  color: white;
-  border-radius: 4px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  transition: all 0.2s ease;
-} */
-/* 
-.submit:hover {
-  background: #237d91;
-} */
 
 .darkmode .forgot {
   color: #237d91;
