@@ -15,7 +15,7 @@ export const createUser = async (req, res) => {
         }
     });
     if (userName) {
-        res.status(400).json('User already exist');
+        res.status(400).json('Desculpe, este username já existe');
         return;
     }
 

@@ -18,7 +18,7 @@ function Register() {
   const [openToast4, setOpenToast4] = useState(false);
   const [openToast5, setOpenToast5] = useState(false);
   const [openToast6, setOpenToast6] = useState(false);
-  const [isRegistered, setIsRegistered] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -87,16 +87,19 @@ function Register() {
     }
 
     // before create new user verify if username already exist if not exist show toast 3 and after 3 seconds redirect to login
-    await axios.post("http://localhost:4243/api/users/createUser", user);
-    setOpenToast3(true);
-    setTimeout(() => {
-      navigate("/");
-    }, 1000);
+    await axios.post("http://localhost:4243/api/users/createUser", user).then((res) => {
+      setOpenToast3(true);
+      setTimeout(() => {
+        navigate("/");
+      }, 1000)
+    })
+    .catch((err) => {
+      if (err.response.status === 400) {
+        setErrorMessage(err.response.data);
+        setOpenToast1(true);
+      }
+    });
   };
-
-  if (isRegistered) {
-    return navigate("/");
-  }
 
   return (
     <>
@@ -165,7 +168,7 @@ function Register() {
       </div>
       <Snackbar open={openToast1} autoHideDuration={2000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
-          Username já existe!
+          {errorMessage}
         </Alert>
       </Snackbar>
       <Snackbar open={openToast2} autoHideDuration={2000} onClose={handleClose}>
