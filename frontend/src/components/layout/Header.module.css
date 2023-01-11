@@ -40,22 +40,30 @@
 .cart {
   display: flex;
   align-items: center;
-  padding: 0.7rem;
   transition: 0.1s;
   text-align: right;
   font-weight: 700;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: auto;
+  margin-right: 0.5rem;
   text-transform: uppercase;
   font-size: 12px;
 }
 
-.user {
+.exit{
   display: flex;
-  margin-left: 1rem;
-  margin-left:auto;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  align-items: center;
 }
 
+.user {
+  display: flex;
+  align-items: center;
+  margin-left:0.5rem;
+}
+
+.exit:hover,
+.user:hover,
 .cart:hover,
 .conta:hover {
   color: var(--cor-2);

@@ -129,11 +129,11 @@ footer {
 .create-link {
   margin-top: 20px;
   text-decoration: none;
-  color: #4cbfa6;
+  color: var(--cor-5);
 }
 
 .create-link:hover {
-  color: #237d91;
+  color: var(--cor-2);
 }
 
 span {
