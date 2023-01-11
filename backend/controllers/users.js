@@ -80,6 +80,7 @@ export const updateAdmin = async (req, res) => {
     }
 }
 
+// login
 export const login = async (req, res) => {
     const { username, password } = req.body;
 
@@ -89,8 +90,6 @@ export const login = async (req, res) => {
         }
     });
 
-    // verify if password and username is correct, if not return 401 unauthorized
-    // verify if password is correct, if not return 401 unauthorized
     if (user) {
         const isValid = bcrypt.compareSync(password, user.password);
         if (isValid) {
@@ -111,5 +110,29 @@ export const login = async (req, res) => {
     }
     else {
         res.status(401).json('Username or password incorrect');
+    }
+}
+
+// delete user by id, if he have rentals > 1 dont delete and return message  "User has rentals", if not found a user return 404 not found message
+export const deleteUser = async (req, res) => {
+    const { id } = req.params;
+    const user = await UserModel.findOne({
+        where: {
+            id
+        }
+    });
+    if (user) {
+        if (user.rentals > 0) {
+            res.json('User has rentals');
+        } else {
+            await UserModel.destroy({
+                where: {
+                    id
+                }
+            });
+            res.json('User deleted');
+        }
+    } else {
+        res.status(404).json('User not found');
     }
 }

@@ -4,7 +4,8 @@ import {
     getAllUsers,
     getAllAdmins,
     updateAdmin,
-    login
+    login,
+    deleteUser
 } from "../controllers/users.js";
 
 const userRoutes = Router();
@@ -18,5 +19,7 @@ userRoutes.get("/getAllAdmins", getAllAdmins);
 userRoutes.put("/updateAdmin/:id", updateAdmin);
 
 userRoutes.post("/auth", login);
+
+userRoutes.delete("/deleteUser/:id", deleteUser);
 
 export { userRoutes };
