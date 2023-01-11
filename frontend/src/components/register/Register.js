@@ -2,12 +2,21 @@ import React from "react";
 import { useState } from "react";
 import "./Register.css";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
+import {
+  Backdrop,
+  Button,
+  CircularProgress,
+  TextField,
+  Alert,
+  Snackbar,
+} from "@mui/material";
 
 function Register() {
+  <ToastContainer />;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
