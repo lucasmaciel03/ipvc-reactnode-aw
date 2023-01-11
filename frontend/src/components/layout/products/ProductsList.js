@@ -4,12 +4,31 @@ import HeaderProdutos from "./HeaderProdutos";
 import classes from "./ProductsList.module.css";
 import ProductItem from "./ProductItem";
 import FilterTags from "./FilterTags";
+import axios from "axios";
 
 const ProductsList = () => {
   const [currPage, setCurrPage] = useState(1);
   const itemsPerPage = 12;
   const [shownProducts, setShownProducts] = useState([]);
   const { filteredProducts } = useContext(FilterContext);
+
+    // connect to backend
+    const [films, setFilms] = useState([]);
+
+    const getFilms = async () => {
+      const url = "http://localhost:4243/api/films/getAllFilmsWithCategoryName";
+      const res = await axios.get(url);
+  
+      if(!res) return;
+      setFilms(res.data);
+    };
+  
+    useEffect(() => {
+      getFilms();
+    }, [films]);
+
+  
+  
 
   useEffect(() => {
     const indexPreviousPage = itemsPerPage * (currPage - 1);
