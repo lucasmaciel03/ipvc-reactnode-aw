@@ -4,6 +4,7 @@ import { ReactComponent as IconCart } from "../../assets/cart.svg";
 import { ReactComponent as IconSun } from "../../assets/sun.svg";
 import { ReactComponent as IconMoon } from "../../assets/moon.svg";
 import { ReactComponent as IconUser } from "../../assets/user.svg";
+import { ReactComponent as IconExit } from "../../assets/exit.svg";
 import { CartContext } from "../../context/CartContext";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import SearchField from "./SearchField";
@@ -49,6 +50,12 @@ const Header = ({ onShow }) => {
         <span className={classes.logo}>MovieAL</span>
 
         <SearchField />
+        <button className={classes.cart} onClick={onShow}>
+          <span className={classes.amount}>
+            <IconCart />
+            <span className={classes.value}>{totalItemsInTheCart}</span>
+          </span>
+        </button>
         <button
           className={classes.user}
           onClick={() => {
@@ -63,11 +70,11 @@ const Header = ({ onShow }) => {
             <Modal />
           </div>
         )}
-        <button className={classes.cart} onClick={onShow}>
-          <span className={classes.amount}>
-            <IconCart />
-            <span className={classes.value}>{totalItemsInTheCart}</span>
-          </span>
+        
+        <button
+        className={classes.exit}
+        title="Sair">
+          <IconExit/>
         </button>
         <button
           className={classes.btnColorMode}
