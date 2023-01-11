@@ -114,7 +114,7 @@ export const login = async (req, res) => {
         }
     }
     else {
-        res.status(401).json('Desculpe, este Username não existe');
+        res.status(401).json('Username ou Palavra Passe incorreta');
     }
 }
 

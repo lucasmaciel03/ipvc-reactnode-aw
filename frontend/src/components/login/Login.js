@@ -25,7 +25,6 @@ const Login = () => {
   const [openToast3, setOpenToast3] = useState(false);
   const [openToast4, setOpenToast4] = useState(false);
   const [openToast5, setOpenToast5] = useState(false);
-  const [openToast6, setOpenToast6] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
 
@@ -38,7 +37,6 @@ const Login = () => {
       setOpenToast3(false);
       setOpenToast4(false);
       setOpenToast5(false);
-      setOpenToast6(false);
     }
   };
 
@@ -67,19 +65,22 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // if name and password are null
+    if (username === "" && password === "") {
+      setOpenToast4(true);
+      return;
+    }
+
     // if name is null return alert message
     if (username === "") {
-      alert("Please enter your username");
+      setOpenToast1(true);
+      return;
     }
 
     // if password is null return alert message
     if (password === "") {
-      alert("Please enter your password");
-    }
-
-    // if name and password are null
-    if (username === "" && password === "") {
-      alert("Please enter your username and password");
+      setOpenToast2(true);
+      return;
     }
 
     const data = {
@@ -88,21 +89,21 @@ const Login = () => {
     };
 
     // login, verify if name exist if not exist return alert message, if exist verify if password is correct if not return alert message, if password is correct return alert message and after 3sec navigate to home page and set isLogged to true
-    axios.post("http://localhost:4243/api/users/auth", data).then((res) => {  
+    axios.post("http://localhost:4243/api/users/auth", data).then((res) => {
       localStorage.setItem("token", res.data.token);
-      alert("Login successful");
+      setOpenToast3(true);
       setTimeout(() => {
         navigate("/home");
         setIsLoggedIn(true);
-      }, 3000);
+      }, 1000);
     }
     )
-    .catch((err) => {
-      if (err.response.status === 401) {
-        setErrorMessage(err.response.data);
-        setOpenToast6(true);
-      }
-    });
+      .catch((err) => {
+        if (err.response.status === 401) {
+          setErrorMessage(err.response.data);
+          setOpenToast5(true);
+        }
+      });
   };
 
   if (isLoggedIn) {
@@ -164,30 +165,25 @@ const Login = () => {
       </div>
       <Snackbar open={openToast1} autoHideDuration={2000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
-          Username já existe!
+          Por Favor preencha o seu nome!
         </Alert>
       </Snackbar>
       <Snackbar open={openToast2} autoHideDuration={2000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
-          Palavras-passe não coincidem!
+          Por Favor preencha a sua palavra-passe!
         </Alert>
       </Snackbar>
       <Snackbar open={openToast3} autoHideDuration={2000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
-          Registado com sucesso!
+          Bem Vindo ...
         </Alert>
       </Snackbar>
       <Snackbar open={openToast4} autoHideDuration={2000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
-          Preencha o seu nome e a palavra-passe!
+          Preencha o seu nome e a sua palavra-passe!
         </Alert>
       </Snackbar>
       <Snackbar open={openToast5} autoHideDuration={2000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
-          Preencha a sua palavra-passe!
-        </Alert>
-      </Snackbar>
-      <Snackbar open={openToast6} autoHideDuration={2000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
           {errorMessage}
         </Alert>
