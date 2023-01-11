@@ -8,8 +8,8 @@ import "./App.css";
 import Alert from "./components/alert/Alert";
 import { AlertContext } from "./context/AlertContext";
 import Login from "./components/login/Login";
+import Register from "./components/register/Register";
 import { Route, Routes } from "react-router-dom";
-import { Switch } from "react-router-dom";
 
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
   return (
     <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/home" element={
              <div className={`app ${isDarkMode ? "darkMode" : ""}`}>
                 <Alert alertIsShown={alertIsShown} content={alertContent} />
