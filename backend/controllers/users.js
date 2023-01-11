@@ -4,28 +4,32 @@ import { createToken } from "../utils/jwt.js";
 
 // create new user
 export const createUser = async (req, res) => {
-    const { username, password } = req.body;
-    const user = await UserModel.findOne({
+    const newUser = {
+        username: req.body.username,
+        password: req.body.password,
+    };
+    // verify if name already exist in database
+    const userName = await UserModel.findOne({
         where: {
-            username
+            username: newUser.username
         }
     });
-    if (user) {
-        res.json('Username already taken');
+    if (userName) {
+        res.status(400).json('User already exist');
+        return;
     }
-    if (username === null) {
-        res.json('Username cannot be null');
-    }
-    if (password.length < 8 || !password.match(/[A-Z]/)) {
-        res.json('Password must have at least 8 characters and 1 capital letter');
-    }
-    if (!user && username !== null && password.length >= 8 && password.match(/[A-Z]/)) {
-        const newUser = await UserModel.create({
-            username,
-            password: bcrypt.hashSync(password, 10)
-        });
-        res.status(201).json('User Created!' + newUser);
-    }
+
+    // hash password
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(newUser.password, salt);
+    newUser.password = hash;
+
+    const asd = await UserModel.create(newUser);
+    const { password, ...user } = asd.dataValues;
+
+    const token = createToken(user);
+
+    res.send(token);
 }
 
 // get all users who have isAdmin = 0 dont return the password and id
