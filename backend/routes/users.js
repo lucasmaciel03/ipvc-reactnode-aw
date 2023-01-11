@@ -4,6 +4,7 @@ import {
     getAllUsers,
     getAllAdmins,
     updateAdmin,
+    login
 } from "../controllers/users.js";
 
 const userRoutes = Router();
@@ -15,5 +16,7 @@ userRoutes.get("/getAllUsers", getAllUsers);
 userRoutes.get("/getAllAdmins", getAllAdmins);
 
 userRoutes.put("/updateAdmin/:id", updateAdmin);
+
+userRoutes.post("/auth", login);
 
 export { userRoutes };

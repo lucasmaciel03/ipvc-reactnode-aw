@@ -1,5 +1,6 @@
 import { UserModel } from "../models/users.js";
 import bcrypt from 'bcrypt';
+import { createToken } from "../utils/jwt.js";
 
 // create new user
 export const createUser = async (req, res) => {
@@ -79,3 +80,36 @@ export const updateAdmin = async (req, res) => {
     }
 }
 
+export const login = async (req, res) => {
+    const { username, password } = req.body;
+
+    const user = await UserModel.findOne({
+        where: {
+            username
+        }
+    });
+
+    // verify if password and username is correct, if not return 401 unauthorized
+    // verify if password is correct, if not return 401 unauthorized
+    if (user) {
+        const isValid = bcrypt.compareSync(password, user.password);
+        if (isValid) {
+            const token = createToken({
+                id: user.id,
+                username: user.username,
+                isAdmin: user.isAdmin
+            });
+            res.status(200).json({
+                message: "Login successful",
+                token,
+                user
+            });
+        }
+        else {
+            res.status(401).json('Password incorrect');
+        }
+    }
+    else {
+        res.status(401).json('Username or password incorrect');
+    }
+}
