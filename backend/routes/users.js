@@ -5,7 +5,8 @@ import {
     getAllAdmins,
     updateAdmin,
     login,
-    deleteUser
+    deleteUser,
+    allUsers,
 } from "../controllers/users.js";
 
 const userRoutes = Router();
@@ -21,5 +22,9 @@ userRoutes.put("/updateAdmin/:id", updateAdmin);
 userRoutes.post("/auth", login);
 
 userRoutes.delete("/deleteUser/:id", deleteUser);
+
+userRoutes.get("/allUsers", allUsers);
+
+
 
 export { userRoutes };

@@ -41,4 +41,10 @@ export const deleteCategory = async (req, res) => {
     res.json(category);
 }
 
+// count all categories
+export const countCategories = async (req, res) => {
+    const categories = await CategoryModel.findAll();
+    res.json(categories.length);
+}
+
 
