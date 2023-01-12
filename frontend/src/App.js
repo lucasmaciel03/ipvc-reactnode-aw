@@ -77,9 +77,10 @@ function App() {
           }
         ></Route>
         {/* About User */}
-        <Route path="admin/userpage" element={<UserPage />} />
+        {/* <Route path="admin/userpage" element={<UserPage />} /> */}
         <Route path="admin/createuser" element={<CreateUser />} />
         <Route path="admin/updateuser" element={<CreateCategory />} />
+        <Route path="admin/deleteuser" element={<CreateCategory />} />
 
         {/* About fILMES */}
         <Route path="admin/updatefilmes" element={<CreateCategory />} />
