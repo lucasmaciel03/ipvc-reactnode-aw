@@ -16,11 +16,11 @@ const Products = () => {
     if (hasToken) {
       const info = jwtDecode(hasToken);
       setUserInfo(info);
-      // console.log(info.idUser);
+      console.log(info.idUser);
     } else {
       navigate("/");
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="container">
