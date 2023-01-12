@@ -8,14 +8,15 @@ import "./App.css";
 import Alert from "./Client/components/alert/Alert";
 import { AlertContext } from "./Client/context/AlertContext";
 import Login from "./Client/components/login/Login";
-import Register from "./Client/components/register/Register"
+import Register from "./Client/components/register/Register";
 import { Route, Routes } from "react-router-dom";
 import jwtDecode from "jwt-decode";
-import ErrorPage from './Error/Error404';
-import UserPage from './Client/Pages/User/UserPage';
+import ErrorPage from "./Error/Error404";
+import UserPage from "./Client/Pages/User/UserPage";
 // Admin Imports
-import Dashboard from './Admin/Dashboard/Dashboard';
-
+import Dashboard from "./Admin/Dashboard/Dashboard";
+import CreateUser from "./Admin/Dashboard/User/CreateUser";
+import CreateCategory from "./Admin/Dashboard/Category/CreateCaterogy";
 
 function App() {
   const [isCartVisible, setIsCartVisible] = useState(false);
@@ -45,11 +46,10 @@ function App() {
       const info = jwtDecode(hasToken);
 
       setUserType(info.isAdmin);
-      console.log('---------------------' + info.isAdmin);
+      console.log("---------------------" + info.isAdmin);
     }
   }, []);
   return (
-
     <Routes>
       <Route path="*" element={<ErrorPage />} />
       {userType === true ? (
@@ -62,27 +62,30 @@ function App() {
       )}
       <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/home" element={
-        <div className={`app ${isDarkMode ? "darkMode" : ""}`}>
-          <Alert alertIsShown={alertIsShown} content={alertContent} />
-          {isCartVisible && (
-            <Cart
-              onClose={closeCartHandler}
-              onShowFinal={showFinalModalHandler}
-            />
-          )}
-          {purchaseFinishedModal && (
-            <PurchaseSuccess onClose={closeFinalModalHandler} />
-          )}
-          <Header onShow={showCartHandler} />
-          <Products />
-        </div>
-      } >
-      </Route>
+      <Route
+        path="/home"
+        element={
+          <div className={`app ${isDarkMode ? "darkMode" : ""}`}>
+            <Alert alertIsShown={alertIsShown} content={alertContent} />
+            {isCartVisible && (
+              <Cart
+                onClose={closeCartHandler}
+                onShowFinal={showFinalModalHandler}
+              />
+            )}
+            {purchaseFinishedModal && (
+              <PurchaseSuccess onClose={closeFinalModalHandler} />
+            )}
+            <Header onShow={showCartHandler} />
+            <Products />
+          </div>
+        }
+      ></Route>
       <Route path="/userpage" element={<UserPage />} />
+      <Route path="/createuser" element={<CreateUser />} />
+      <Route path="/createcategory" element={<CreateCategory />} />
     </Routes>
   );
-
 }
 
 export default App;
