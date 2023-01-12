@@ -63,9 +63,8 @@ export const getAllFilmsWithCategoryName = async (req, res) => {
         }
     }));
 
-    return res.status(200).json({
-        films: films2
-    });
+    return res.status(200).json(films2);
+
 }
 
 // delete film by id and verify if film exist

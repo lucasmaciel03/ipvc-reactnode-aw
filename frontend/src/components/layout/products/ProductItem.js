@@ -1,15 +1,40 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { AlertContext } from "../../../context/AlertContext";
 import { CartContext } from "../../../context/CartContext";
 import classes from "./ProductItem.module.css";
 import { ReactComponent as IconHeart } from "../../../assets/heart.svg";
 import { ReactComponent as IconFilled } from "../../../assets/heartfilled.svg";
-const ProdutoItem = ({ name, img, price, description }) => {
+import axios from "axios";
+
+
+const ProdutoItem = (  ) => {
   const [amount, setAmount] = useState(1);
   const animaTimeout = useRef();
 
   const { addItem } = useContext(CartContext);
   const { showAlert } = useContext(AlertContext);
+
+  const [films, setFilms] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const getFilms = async () => {
+    const url = "http://localhost:4243/api/films/getAllFilmsWithCategoryName";
+    const res = await axios.get(url);
+
+    console.log(res.data)
+
+    if (!res) return;
+    setFilms(res.data);
+    setIsLoaded(true);
+  };
+
+  useEffect(() => {
+    if (!isLoaded){
+      getFilms();
+      setIsLoaded(true);
+    }
+  }, [isLoaded]);
+
 
   const addItemToCartHandler = (e) => {
     e.preventDefault();
@@ -17,13 +42,13 @@ const ProdutoItem = ({ name, img, price, description }) => {
     clearTimeout(animaTimeout.current);
 
     addItem({
-      name: name,
-      price: price,
+      name: films.name,
+      price: films.price,
       amount: +amount,
-      img: img,
+      img: films.img,
     });
 
-    showAlert(`"${name}" adicionado(s) ao carrinho`);
+    showAlert(`"${films.name}" adicionado(s) ao carrinho`);
   };
 
   const [isFav, setIsFav] = useState(false);
@@ -31,49 +56,56 @@ const ProdutoItem = ({ name, img, price, description }) => {
     setIsFav(!isFav);
     e.preventDefault();
     clearTimeout(animaTimeout.current);
-    if(isFav){
+    if (isFav) {
       setIsFav(false);
-      showAlert(`"${name}" foi removido dos favoritos`);
-    }else{
+      showAlert(`"${films.name}" foi removido dos favoritos`);
+    } else {
       setIsFav(true);
-      showAlert(`"${name}" adicionado aos favoritos`);
+      showAlert(`"${films.name}" adicionado aos favoritos`);
     }
   };
 
   return (
-    <li className={classes.card}>
-      <div className={classes.imgContainer}>
-        <img src={require(`../../../assets/imgs-produtos/${img}`)} alt={name} />
-      </div>
-      <div className={classes.infos}>
-        <div>
-          <p className={classes.name}>{name}</p>
-          <p className={classes.description} title={description}>
-            {description}
-          </p>
-        </div>
+    <>
+      {films.map((film) => {
+        return (
+          <li className={classes.card}>
+            <div className={classes.imgContainer}>
+              <img src={require(`../../../assets/imgs-produtos/${film.img}`)} alt={film.name} />
+            </div>
+            <div className={classes.infos}>
+              <div>
+                <p className={classes.name}>{film.name}</p>
+                <p className={classes.description} title={film.description}>
+                  {film.description}
+                </p>
+              </div>
 
-        <div className={classes.flex}>
-          <p className={classes.price}>€ {price}</p>
-          <form className={classes.addForm}>
-            <button
-              className={classes.favAdd}
-              onClick={favAdd}
-              title="adicionar aos favoritos"
-            >
-              {isFav ? <IconFilled/> : <IconHeart />}
-            </button>
-            <button
-              className={classes.btnAdd}
-              onClick={addItemToCartHandler}
-              title="adicionar ao carrinho"
-            >
-              +
-            </button>
-          </form>
-        </div>
-      </div>
-    </li>
+              <div className={classes.flex}>
+                <p className={classes.price}>€ {film.price}</p>
+                <form className={classes.addForm}>
+                  <button
+                    className={classes.favAdd}
+                    onClick={favAdd}
+                    title="adicionar aos favoritos"
+                  >
+                    {isFav ? <IconFilled /> : <IconHeart />}
+                  </button>
+                  <button
+                    className={classes.btnAdd}
+                    onClick={addItemToCartHandler}
+                    title="adicionar ao carrinho"
+                  >
+                    +
+                  </button>
+                </form>
+              </div>
+            </div>
+          </li>
+        )
+      })}
+
+    </>
   );
 };
 
