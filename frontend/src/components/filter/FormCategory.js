@@ -19,7 +19,7 @@ const FormCategory = ({ setFilter, filterVal }) => {
 
   useEffect(() => {
     getCategories();
-  }, [categories]);
+  }, []);
 
 
   const handleChange = ({ target }) => {
