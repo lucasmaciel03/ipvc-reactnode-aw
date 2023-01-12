@@ -13,6 +13,8 @@ import { Route, Routes } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import ErrorPage from './Error/Error404';
 import UserPage from './Client/Pages/User/UserPage';
+// Admin Imports
+import Dashboard from './Admin/Dashboard/Dashboard';
 
 
 function App() {
@@ -34,41 +36,52 @@ function App() {
     setPurchaseFinishedModal(true);
   };
 
+  const [userType, setUserType] = useState();
+
   useEffect(() => {
     const hasToken = localStorage.getItem("token");
+
     if (hasToken) {
       const info = jwtDecode(hasToken);
 
-      // setUserType(info.type);
-      // console.log(info.idUser);
+      setUserType(info.isAdmin);
+      console.log('---------------------' + info.isAdmin);
     }
   }, []);
   return (
-    
+
     <Routes>
-        <Route path="*" element={<ErrorPage/>}/>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/home" element={
-             <div className={`app ${isDarkMode ? "darkMode" : ""}`}>
-                <Alert alertIsShown={alertIsShown} content={alertContent} />
-                {isCartVisible && (
-                  <Cart
-                    onClose={closeCartHandler}
-                    onShowFinal={showFinalModalHandler}
-                  />
-                )}
-                {purchaseFinishedModal && (
-                  <PurchaseSuccess onClose={closeFinalModalHandler} />
-                )}
-                <Header onShow={showCartHandler} />
-                <Products />
-            </div>
-        } >
-        </Route>
-        <Route path="/userpage" element={<UserPage/>}/>
+      {userType === true ? (
+        <Route
+          path="/admin"
+          element={<Dashboard />}
+        />
+      ) : (
+        ""
+      )}
+      <Route path="*" element={<ErrorPage />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/home" element={
+        <div className={`app ${isDarkMode ? "darkMode" : ""}`}>
+          <Alert alertIsShown={alertIsShown} content={alertContent} />
+          {isCartVisible && (
+            <Cart
+              onClose={closeCartHandler}
+              onShowFinal={showFinalModalHandler}
+            />
+          )}
+          {purchaseFinishedModal && (
+            <PurchaseSuccess onClose={closeFinalModalHandler} />
+          )}
+          <Header onShow={showCartHandler} />
+          <Products />
+        </div>
+      } >
+      </Route>
+      <Route path="/userpage" element={<UserPage />} />
     </Routes>
-);
+  );
 
 }
 
