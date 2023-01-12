@@ -9,7 +9,7 @@ import Alert from "./Client/components/alert/Alert";
 import { AlertContext } from "./Client/context/AlertContext";
 import Login from "./Client/components/login/Login";
 import Register from "./Client/components/register/Register";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import ErrorPage from "./Error/Error404";
 import UserPage from "./Client/Pages/User/UserPage";
@@ -45,46 +45,44 @@ function App() {
     if (hasToken) {
       const info = jwtDecode(hasToken);
 
-      setUserType(info.isAdmin);
+      setUserType(info.userType);
       console.log("---------------------" + info.isAdmin);
     }
   }, []);
   return (
-    <Routes>
-      <Route path="*" element={<ErrorPage />} />
-      {userType === true ? (
+    <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<ErrorPage />} />
         <Route
           path="/admin"
           element={<Dashboard />}
         />
-      ) : (
-        "/home"
-      )}
-      <Route path="/" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route
-        path="/home"
-        element={
-          <div className={`app ${isDarkMode ? "darkMode" : ""}`}>
-            <Alert alertIsShown={alertIsShown} content={alertContent} />
-            {isCartVisible && (
-              <Cart
-                onClose={closeCartHandler}
-                onShowFinal={showFinalModalHandler}
-              />
-            )}
-            {purchaseFinishedModal && (
-              <PurchaseSuccess onClose={closeFinalModalHandler} />
-            )}
-            <Header onShow={showCartHandler} />
-            <Products />
-          </div>
-        }
-      ></Route>
-      <Route path="/userpage" element={<UserPage />} />
-      <Route path="/createuser" element={<CreateUser />} />
-      <Route path="/createcategory" element={<CreateCategory />} />
-    </Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/home"
+          element={
+            <div className={`app ${isDarkMode ? "darkMode" : ""}`}>
+              <Alert alertIsShown={alertIsShown} content={alertContent} />
+              {isCartVisible && (
+                <Cart
+                  onClose={closeCartHandler}
+                  onShowFinal={showFinalModalHandler}
+                />
+              )}
+              {purchaseFinishedModal && (
+                <PurchaseSuccess onClose={closeFinalModalHandler} />
+              )}
+              <Header onShow={showCartHandler} />
+              <Products />
+            </div>
+          }
+        ></Route>
+        <Route path="/userpage" element={<UserPage />} />
+        <Route path="/createuser" element={<CreateUser />} />
+        <Route path="/createcategory" element={<CreateCategory />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
