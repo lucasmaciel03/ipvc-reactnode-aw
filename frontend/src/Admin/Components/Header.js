@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import GroupIcon from '@mui/icons-material/Group';
@@ -7,6 +6,8 @@ import MenuItem from '@mui/material/MenuItem';
 import CategoryIcon from '@mui/icons-material/Category';
 import { AppBar, Badge, Box, Button, Toolbar, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 
 function Header() {
     const [allFilmes, setallFilmes] = useState([]);
@@ -27,9 +28,8 @@ function Header() {
         });
     }, []);
 
-
     useEffect(() => {
-        const url = 'http://localhost:4243/api/films/getAllCategory';
+        const url = 'http://localhost:4243/api/categories/countCategories';
         axios.get(url).then((res) => {
             setAllCategories(res.data);
         });
@@ -54,14 +54,14 @@ function Header() {
                                 </Badge>
                             </Button>
                         </Link>
-                        <Link to="/admin/utilizadores">
+                        <Link to="/admin/createuser">
                             <Button color="inherit">
                                 <Badge badgeContent={allUsers} color="primary">
                                     <GroupIcon />
                                 </Badge>
                             </Button>
                         </Link>
-                        <Link to="/admin/utilizadores">
+                        <Link to="/admin/createcategory">
                             <Button color="inherit">
                                 <Badge badgeContent={countCategories} color="error">
                                     <CategoryIcon />
