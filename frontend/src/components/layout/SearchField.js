@@ -8,13 +8,6 @@ const SearchField = () => {
   const { saveInputSearchVal } = useContext(FilterContext);
   const searchHandler = (e) => {
     e.preventDefault();
-    
-    // If value of input = null send message
-    if (!e.target.search.value) {
-      alert("Por favor, insira um valor para pesquisar");
-
-      return;
-    }
 
     const inputValue = e.target.search.value.toLowerCase().trim();
 

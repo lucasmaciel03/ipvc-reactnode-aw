@@ -1,30 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import classes from "./ProductsPagination.module.css";
 import { ReactComponent as ArrowLeft } from "../../../assets/arrow-left.svg";
 import { ReactComponent as ArrowRight } from "../../../assets/arrow-right.svg";
-import axios from "axios";
 
 const ProductsPagination = ({
+  products,
   itemsPerPage,
   currPage,
   setCurrPage,
 }) => {
-  const [films, setFilms] = useState([]);
-
-  const getFilms = async () => {
-    const url = "http://localhost:4243/api/films/getAllFilmsWithCategoryName";
-    const res = await axios.get(url);
-
-    if (!res) return;
-    setFilms(res.data);
-  };
-
-  useEffect(() => {
-    getFilms();
-  }, []);
-
   const pages = [];
-  const totalPages = Math.ceil(films.length / itemsPerPage);
+  const totalPages = Math.ceil(products.length / itemsPerPage);
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
   }

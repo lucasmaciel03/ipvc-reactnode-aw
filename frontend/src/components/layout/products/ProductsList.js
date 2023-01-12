@@ -11,21 +11,6 @@ const ProductsList = () => {
   const itemsPerPage = 12;
   const [shownProducts, setShownProducts] = useState([]);
   const { filteredProducts } = useContext(FilterContext);
-  const [films, setFilms] = useState([]);
-
-  const getFilms = async () => {
-    const url = "http://localhost:4243/api/films/getAllFilmsWithCategoryName";
-    const res = await axios.get(url);
-
-    console.log(''+res.data)
-
-    if (!res) return;
-    setFilms(res.data);
-  };
-
-  useEffect(() => {
-    getFilms();
-  }, []);
 
   useEffect(() => {
     const indexPreviousPage = itemsPerPage * (currPage - 1);
@@ -37,38 +22,35 @@ const ProductsList = () => {
     setCurrPage(1);
   }, [filteredProducts]);
 
-  const productsList = shownProducts.map((film) => (
+  const productsList = shownProducts.map((prod) => (
     <ProductItem
-      key={film.id}
-      name={film.name}
-      price={film.price}
-      img={film.img}
-      description={film.description}
+      key={prod.name}
+      name={prod.name}
+      price={prod.price}
+      img={prod.img}
+      description={prod.description}
     />
   ));
 
   return (
-    <>
-      <section className={classes.products}>
-        <HeaderProdutos
-          products={filteredProducts}
-          itemsPerPage={itemsPerPage}
-          currPage={currPage}
-          setCurrPage={setCurrPage}
-        />
-        <FilterTags />
-        {shownProducts.length ? (
-          <>
-              <ul className={classes.productsList}>{productsList}</ul>
-          </>
-        ) : (
-          <p className={classes.error}>
-            Ops, não foi encontrado nenhum resultado para a sua pesquisa.
-          </p>
-        )}
-      </section>
-    </>
-
+    <section className={classes.products}>
+      <HeaderProdutos
+        products={filteredProducts}
+        itemsPerPage={itemsPerPage}
+        currPage={currPage}
+        setCurrPage={setCurrPage}
+      />
+      <FilterTags />
+      {filteredProducts.length ? (
+        <>
+          <ul className={classes.productsList}>{productsList}</ul>
+        </>
+      ) : (
+        <p className={classes.error}>
+          Ops, não foi encontrado nenhum resultado para a sua pesquisa.
+        </p>
+      )}
+    </section>
   );
 };
 

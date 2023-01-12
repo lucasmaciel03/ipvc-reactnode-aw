@@ -13,13 +13,14 @@ const FormCategory = ({ setFilter, filterVal }) => {
     const url = "http://localhost:4243/api/categories/getAllCategories";
     const res = await axios.get(url);
 
-    if (!res) return;
+    if(!res) return;
     setCategories(res.data);
   };
 
   useEffect(() => {
     getCategories();
-  }, []);
+  }, [categories]);
+
 
   const handleChange = ({ target }) => {
     if (target.checked) {
