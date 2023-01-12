@@ -18,6 +18,7 @@ import Dashboard from "./Admin/Dashboard/Dashboard";
 import CreateUser from "./Admin/Dashboard/User/CreateUser";
 import CreateCategory from "./Admin/Dashboard/Category/CreateCaterogy";
 
+
 function App() {
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [purchaseFinishedModal, setPurchaseFinishedModal] = useState(false);
@@ -75,9 +76,21 @@ function App() {
             </div>
           }
         ></Route>
-        <Route path="/userpage" element={<UserPage />} />
-        <Route path="/createuser" element={<CreateUser />} />
-        <Route path="/createcategory" element={<CreateCategory />} />
+        {/* About User */}
+        <Route path="admin/userpage" element={<UserPage />} />
+        <Route path="admin/createuser" element={<CreateUser />} />
+        <Route path="admin/updateuser" element={<CreateCategory />} />
+
+        {/* About fILMES */}
+        <Route path="admin/updatefilmes" element={<CreateCategory />} />
+        <Route path="admin/eliminarfilmes" element={<CreateCategory />} />
+
+        {/* About Categorias */}
+        <Route path="admin/createcategory" element={<CreateCategory />} />
+        <Route path="admin/updatecategory" element={<CreateCategory />} />
+        <Route path="admin/deletecategory" element={<CreateCategory />} />
+
+
       </Routes>
     </BrowserRouter>
   );
