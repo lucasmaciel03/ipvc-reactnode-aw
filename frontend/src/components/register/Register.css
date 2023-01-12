@@ -178,3 +178,11 @@ footer {
 .create-link:hover {
   color: var(--cor-5);
 }
+
+.eyeicon{
+  position:absolute;
+  right: 10px;
+  top: -10%;
+  transform:translateY(-50%);
+}
+

@@ -129,7 +129,7 @@ function Register() {
 
               <div className="senha-field ct-input">
                 <label htmlFor="senha-entrar">Password</label>
-                <span onClick={handleToggle}>
+                <span className="eyeicon" onClick={handleToggle}>
                   <Icon icon={icon} size={20} />
                 </span>
                 <input
@@ -143,7 +143,7 @@ function Register() {
 
               <div className="senha-field ct-input">
                 <label htmlFor="senha-entrar">Repeat Password</label>
-                <span onClick={handleToggle}>
+                <span className="eyeicon" onClick={handleToggle}>
                   <Icon icon={icon} size={20} />
                 </span>
                 <input

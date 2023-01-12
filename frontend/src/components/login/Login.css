@@ -139,3 +139,10 @@ footer {
 span {
   cursor: pointer;
 }
+
+.eyeicon{
+  position:absolute;
+  right: 10px;
+  top: -10%;
+  transform:translateY(-50%);
+}

@@ -139,7 +139,7 @@ const Login = () => {
 
               <div className="senha-field ct-input">
                 <label htmlFor="senha-entrar">Password</label>
-                <span onClick={handleToggle}>
+                <span className="eyeicon" onClick={handleToggle}>
                   <Icon icon={icon} size={20} />
                 </span>
                 <input
