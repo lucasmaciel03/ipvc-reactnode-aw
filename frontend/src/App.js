@@ -52,14 +52,7 @@ function App() {
   return (
     <Routes>
       <Route path="*" element={<ErrorPage />} />
-      {userType === true ? (
-        <Route
-          path="/admin"
-          element={<Dashboard />}
-        />
-      ) : (
-        "/home"
-      )}
+      <Route path="/admin" element={<Dashboard />} />
       <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route

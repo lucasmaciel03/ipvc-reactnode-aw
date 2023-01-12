@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 import GroupIcon from "@mui/icons-material/Group";
+import Header from "../../Components/Header";
 
 const CreateUser = () => {
   const [allFilmes, setallFilmes] = useState([]);
@@ -35,29 +36,7 @@ const CreateUser = () => {
   return (
     <div>
       <>
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static" sx={{ color: "black", bgcolor: "white" }}>
-            <Toolbar>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                MovieAL
-              </Typography>
-              <Link to="/admin">
-                <Button color="inherit">
-                  <Badge badgeContent={allFilmes} color="secondary">
-                    <LocalMoviesIcon />
-                  </Badge>
-                </Button>
-              </Link>
-              <Link to="/admin/utilizadores">
-                <Button color="inherit">
-                  <Badge badgeContent={allUsers} color="primary">
-                    <GroupIcon />
-                  </Badge>
-                </Button>
-              </Link>
-            </Toolbar>
-          </AppBar>
-        </Box>
+        <Header />
         <Box
           component="form"
           sx={{
