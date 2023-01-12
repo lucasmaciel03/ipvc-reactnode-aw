@@ -12,6 +12,7 @@ import Register from "./components/register/Register";
 import { Route, Routes } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import ErrorPage from './Error/Error404';
+import UserPage from './Pages/User/UserPage';
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
             </div>
         } >
         </Route>
+        <Route path="/userpage" element={<UserPage/>}/>
     </Routes>
 );
 
