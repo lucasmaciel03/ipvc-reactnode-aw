@@ -50,34 +50,36 @@ function App() {
     }
   }, []);
   return (
-    <Routes>
-      <Route path="*" element={<ErrorPage />} />
-      <Route path="/admin" element={<Dashboard />} />
-      <Route path="/" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route
-        path="/home"
-        element={
-          <div className={`app ${isDarkMode ? "darkMode" : ""}`}>
-            <Alert alertIsShown={alertIsShown} content={alertContent} />
-            {isCartVisible && (
-              <Cart
-                onClose={closeCartHandler}
-                onShowFinal={showFinalModalHandler}
-              />
-            )}
-            {purchaseFinishedModal && (
-              <PurchaseSuccess onClose={closeFinalModalHandler} />
-            )}
-            <Header onShow={showCartHandler} />
-            <Products />
-          </div>
-        }
-      ></Route>
-      <Route path="/userpage" element={<UserPage />} />
-      <Route path="/createuser" element={<CreateUser />} />
-      <Route path="/createcategory" element={<CreateCategory />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<ErrorPage />} />
+        <Route path="/admin" element={<Dashboard />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/home"
+          element={
+            <div className={`app ${isDarkMode ? "darkMode" : ""}`}>
+              <Alert alertIsShown={alertIsShown} content={alertContent} />
+              {isCartVisible && (
+                <Cart
+                  onClose={closeCartHandler}
+                  onShowFinal={showFinalModalHandler}
+                />
+              )}
+              {purchaseFinishedModal && (
+                <PurchaseSuccess onClose={closeFinalModalHandler} />
+              )}
+              <Header onShow={showCartHandler} />
+              <Products />
+            </div>
+          }
+        ></Route>
+        <Route path="/userpage" element={<UserPage />} />
+        <Route path="/createuser" element={<CreateUser />} />
+        <Route path="/createcategory" element={<CreateCategory />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
