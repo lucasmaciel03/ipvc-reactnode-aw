@@ -82,6 +82,25 @@ export const deleteFilmById = async (req, res) => {
     }
 }
 
+// count all films
+export const countFilms = async (req, res) => {
+    const films = await FilmModel.findAll();
+    return res.status(200).json(films.length);
+}
+
+
+// get all category id possibles to add in film and add category name
+export const getAllCategory = async (req, res) => {
+    const categories = await CategoryModel.findAll({
+        attributes: {
+            exclude: ['id']
+        }
+    });
+    return res.status(200).json(categories);
+}
+
+
+
 
 
 

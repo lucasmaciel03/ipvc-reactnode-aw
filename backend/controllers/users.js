@@ -141,3 +141,9 @@ export const deleteUser = async (req, res) => {
         res.status(404).json('User not found');
     }
 }
+
+// count all users
+export const allUsers = async (req, res) => {
+    const users = await UserModel.count();
+    res.json(users);
+}
