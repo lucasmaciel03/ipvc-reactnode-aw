@@ -78,30 +78,44 @@ const CreateUser = () => {
           >
             Criar Utilizadores
           </Typography>
-          <TextField
-            required
-            type="text"
-            id="outlined-required"
-            label="Nome do User"
-            defaultValue=""
-          />
-          <TextField
-            type="password"
-            required
-            id="outlined-required"
-            label="Password do utilizador"
-            defaultValue=""
-          />
+          <div
+            style={{
+              width: "80%",
+              margin: "auto",
+              flexDirection: "column",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <TextField
+              style={{ marginLeft: "0" }}
+              required
+              type="text"
+              id="outlined-required"
+              label="Nome do User"
+              defaultValue=""
+            />
+            <TextField
+              style={{ marginLeft: "0", marginTop: "20px" }}
+              type="password"
+              required
+              id="outlined-required"
+              label="Password do utilizador"
+              defaultValue=""
+            />
+            <Button
+              variant="contained"
+              size="large"
+              style={{
+                width: "20%",
+                marginLeft: "0",
+                marginTop: "50px",
+              }}
+            >
+              Criar Utilizador
+            </Button>
+          </div>
         </Box>
-        <Button
-          variant="contained"
-          style={{
-            marginLeft: "145px",
-            marginTop: "50px",
-          }}
-        >
-          Criar Utilizador
-        </Button>
       </>
     </div>
   );

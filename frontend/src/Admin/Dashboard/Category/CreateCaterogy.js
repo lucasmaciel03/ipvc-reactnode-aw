@@ -78,23 +78,36 @@ const CreateUser = () => {
           >
             Criar Categorias
           </Typography>
-          <TextField
-            required
-            type="text"
-            id="outlined-required"
-            label="Nome da Categoria"
-            defaultValue=""
-          />
+          <div
+            style={{
+              width: "80%",
+              margin: "auto",
+              flexDirection: "column",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <TextField
+              style={{ marginLeft: "0" }}
+              required
+              type="text"
+              id="outlined-required"
+              label="Nome da Categoria"
+              defaultValue=""
+            />
+            <Button
+              variant="contained"
+              size="large"
+              style={{
+                width: "20%",
+                marginLeft: "0",
+                marginTop: "50px",
+              }}
+            >
+              Criar Categoria
+            </Button>
+          </div>
         </Box>
-        <Button
-          variant="contained"
-          style={{
-            marginLeft: "145px",
-            marginTop: "50px",
-          }}
-        >
-          Criar Categoria
-        </Button>
       </>
     </div>
   );
