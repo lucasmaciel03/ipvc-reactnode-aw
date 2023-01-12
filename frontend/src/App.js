@@ -11,6 +11,7 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import { Route, Routes } from "react-router-dom";
 import jwtDecode from "jwt-decode";
+import ErrorPage from './Error/Error404';
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
   return (
     
     <Routes>
-        <Route path="*" element={<h1>404 - Not Found</h1>} />
+        <Route path="*" element={<ErrorPage/>}/>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={
