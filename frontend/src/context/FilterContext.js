@@ -1,5 +1,5 @@
+import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
-import { all_products } from "../lista_produtos";
 
 export const FilterContext = createContext();
 
@@ -12,8 +12,21 @@ const initialFilter = {
 
 const FilterContextProvider = ({ children }) => {
   const [filter, setFilter] = useState(initialFilter);
+  const [films, setFilms ] = useState([])
 
-  const [filteredProducts, setFilteredProducts] = useState(all_products);
+  const getFilms = async () => {
+    const url = "http://localhost:4243/api/films/getAllFilmsWithCategoryName";
+    const res = await axios.get(url);
+    
+    if(!res) return;
+    setFilms(res.data);
+  };
+
+  useEffect(() => {
+    getFilms();
+  }, []);
+
+  const [filteredProducts, setFilteredProducts] = useState(films);
 
   const saveFilter = (newFilter) => {
     setFilter((currVal) => ({ ...newFilter, name: currVal.name }));
@@ -47,13 +60,13 @@ const FilterContextProvider = ({ children }) => {
     let newFilter = {};
 
     //Filtrar por cor
-    newFilter = all_products.filter((prod) => {
+    newFilter = films.filter((prod) => {
       if (filter.colors.length === 0) return true;
       return filter.colors.indexOf(prod.color) >= 0;
     });
 
     //Filtrar por categoria
-    newFilter = newFilter.filter((prod) => {
+    newFilter = films.filter((prod) => {
       if (filter.categories.length === 0) return true;
       return filter.categories.indexOf(prod.category) >= 0;
     });
@@ -67,7 +80,7 @@ const FilterContextProvider = ({ children }) => {
       if (productNameHasSearchValue) return prod;
       return false;
     });
-
+    
     //Filtrar por preço
     newFilter = newFilter.filter((prod) => {
       return (
@@ -77,11 +90,11 @@ const FilterContextProvider = ({ children }) => {
 
     setFilteredProducts(newFilter);
   }, [
-    filter.categories,
     filter.colors,
-    filter.prices.max,
-    filter.prices.min,
-    filter,
+    filter.categories,
+    filter.name,
+    filter.prices,
+    films,
   ]);
 
   return (
