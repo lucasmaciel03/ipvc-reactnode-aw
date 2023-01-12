@@ -12,24 +12,6 @@ const ProductsList = () => {
   const [shownProducts, setShownProducts] = useState([]);
   const { filteredProducts } = useContext(FilterContext);
 
-    // connect to backend
-    const [films, setFilms] = useState([]);
-
-    const getFilms = async () => {
-      const url = "http://localhost:4243/api/films/getAllFilmsWithCategoryName";
-      const res = await axios.get(url);
-  
-      if(!res) return;
-      setFilms(res.data);
-    };
-  
-    useEffect(() => {
-      getFilms();
-    }, [films]);
-
-  
-  
-
   useEffect(() => {
     const indexPreviousPage = itemsPerPage * (currPage - 1);
     const indexCurrPage = itemsPerPage * currPage;
