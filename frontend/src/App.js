@@ -9,7 +9,7 @@ import Alert from "./Client/components/alert/Alert";
 import { AlertContext } from "./Client/context/AlertContext";
 import Login from "./Client/components/login/Login";
 import Register from "./Client/components/register/Register";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import ErrorPage from "./Error/Error404";
 import UserPage from "./Client/Pages/User/UserPage";
@@ -45,7 +45,7 @@ function App() {
     if (hasToken) {
       const info = jwtDecode(hasToken);
 
-      setUserType(info.isAdmin);
+      setUserType(info.userType);
       console.log("---------------------" + info.isAdmin);
     }
   }, []);
