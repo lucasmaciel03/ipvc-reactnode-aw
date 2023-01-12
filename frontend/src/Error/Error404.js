@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from '../components/NotFoundLayout/NotFoundLayout';
-import NotFound from '../components/NotFound/NotFound';
+import Layout from '../Client/components/NotFoundLayout/NotFoundLayout';
+import NotFound from '../Client/components/NotFound/NotFound';
 
 function App() {
   return (

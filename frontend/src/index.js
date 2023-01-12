@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import FilterContextProvider from "./context/FilterContext";
-import CartContextProvider from "./context/CartContext";
-import ColorModeContextProvider from "./context/ColorModeContext";
-import AlertContextProvider from "./context/AlertContext";
+import FilterContextProvider from "./Client/context/FilterContext";
+import CartContextProvider from "./Client/context/CartContext";
+import ColorModeContextProvider from "./Client/context/ColorModeContext";
+import AlertContextProvider from "./Client/context/AlertContext";
 import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

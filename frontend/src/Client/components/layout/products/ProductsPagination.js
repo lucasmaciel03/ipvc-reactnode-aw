@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./ProductsPagination.module.css";
-import { ReactComponent as ArrowLeft } from "../../../assets/arrow-left.svg";
-import { ReactComponent as ArrowRight } from "../../../assets/arrow-right.svg";
+import { ReactComponent as ArrowLeft } from "../../../../assets/arrow-left.svg";
+import { ReactComponent as ArrowRight } from "../../../../assets/arrow-right.svg";
 
 const ProductsPagination = ({
   products,

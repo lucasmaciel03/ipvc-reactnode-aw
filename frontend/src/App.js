@@ -1,18 +1,18 @@
-import Header from "./components/layout/Header";
-import Products from "./components/layout/products/Products";
-import Cart from "./components/cart/Cart";
+import Header from "./Client/components/layout/Header";
+import Products from "./Client/components/layout/products/Products";
+import Cart from "./Client/components/cart/Cart";
 import React, { useContext, useState, useEffect } from "react";
-import PurchaseSuccess from "./components/cart/finishedPurchase/PurchaseSuccess";
-import { ColorModeContext } from "./context/ColorModeContext";
+import PurchaseSuccess from "./Client/components/cart/finishedPurchase/PurchaseSuccess";
+import { ColorModeContext } from "./Client/context/ColorModeContext";
 import "./App.css";
-import Alert from "./components/alert/Alert";
-import { AlertContext } from "./context/AlertContext";
-import Login from "./components/login/Login";
-import Register from "./components/register/Register";
+import Alert from "./Client/components/alert/Alert";
+import { AlertContext } from "./Client/context/AlertContext";
+import Login from "./Client/components/login/Login";
+import Register from "./Client/components/register/Register"
 import { Route, Routes } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import ErrorPage from './Error/Error404';
-import UserPage from './Pages/User/UserPage';
+import UserPage from './Client/Pages/User/UserPage';
 
 
 function App() {

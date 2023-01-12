@@ -12,7 +12,7 @@ import ButtonClose from "../utilities/ButtonClose";
 import classes from "./Filter.module.css";
 import FormCategory from "./FormCategory";
 import useVisibility from "../../customHook/useVisibility";
-import { ReactComponent as IconFilter } from "../../assets/funnel.svg";
+import { ReactComponent as IconFilter } from "../../../assets/funnel.svg";
 
 const Filter = () => {
   const refBtnFilter = useRef();

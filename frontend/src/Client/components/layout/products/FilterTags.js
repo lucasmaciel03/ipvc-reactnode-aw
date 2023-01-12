@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FilterContext } from "../../../context/FilterContext";
 import { ColorModeContext } from "../../../context/ColorModeContext";
-import { ReactComponent as IconX } from "../../../assets/x.svg";
+import { ReactComponent as IconX } from "../../../../assets/x.svg";
 import classes from "./FilterTags.module.css";
 
 const FilterTags = () => {

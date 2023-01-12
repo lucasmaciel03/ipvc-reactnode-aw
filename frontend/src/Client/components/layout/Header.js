@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import classes from "./Header.module.css";
-import { ReactComponent as IconCart } from "../../assets/cart.svg";
-import { ReactComponent as IconSun } from "../../assets/sun.svg";
-import { ReactComponent as IconMoon } from "../../assets/moon.svg";
-import { ReactComponent as IconUser } from "../../assets/user.svg";
-import { ReactComponent as IconExit } from "../../assets/exit.svg";
+import { ReactComponent as IconCart } from "../../../assets/cart.svg";
+import { ReactComponent as IconSun } from "../../../assets/sun.svg";
+import { ReactComponent as IconMoon } from "../../../assets/moon.svg";
+import { ReactComponent as IconUser } from "../../../assets/user.svg";
+import { ReactComponent as IconExit } from "../../../assets/exit.svg";
 import { CartContext } from "../../context/CartContext";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import SearchField from "./SearchField";

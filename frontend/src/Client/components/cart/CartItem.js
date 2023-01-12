@@ -17,7 +17,7 @@ const CarItem = ({ name, price, img, amount, updateAmount, removeItem }) => {
   return (
     <li className={classes.item}>
       <div className={classes.imgDiv}>
-        <img src={require(`../../assets/imgs-produtos/${img}`)} alt={name} />
+        <img src={require(`../../../assets/imgs-produtos/${img}`)} alt={name} />
       </div>
       <div className={classes.infos}>
         <p>{name}</p>

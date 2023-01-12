@@ -2,10 +2,10 @@ import React, { useContext, useRef, useState } from "react";
 import { AlertContext } from "../../../context/AlertContext";
 import { CartContext } from "../../../context/CartContext";
 import classes from "./ProductItem.module.css";
-import { ReactComponent as IconHeart } from "../../../assets/heart.svg";
-import { ReactComponent as IconFilled } from "../../../assets/heartfilled.svg";
-const ProdutoItem = ({ name, img, price, description }) => {
-  const [amount, setAmount] = useState(1);
+import { ReactComponent as IconHeart } from "../../../../assets/heart.svg";
+import { ReactComponent as IconFilled } from "../../../../assets/heartfilled.svg";
+const ProdutoItem = ({ isRent, name, img, price, description }) => {
+  const [amount] = useState(1);
   const animaTimeout = useRef();
 
   const { addItem } = useContext(CartContext);
@@ -43,10 +43,11 @@ const ProdutoItem = ({ name, img, price, description }) => {
   return (
     <li className={classes.card}>
       <div className={classes.imgContainer}>
-        <img src={require(`../../../assets/imgs-produtos/${img}`)} alt={name} />
+        <img src={require(`../../../../assets/imgs-produtos/${img}`)} alt={name} />
       </div>
       <div className={classes.infos}>
         <div>
+          <p className={classes.name}>{isRent}</p>
           <p className={classes.name}>{name}</p>
           <p className={classes.description} title={description}>
             {description}

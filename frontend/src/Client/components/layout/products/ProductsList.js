@@ -22,6 +22,7 @@ const ProductsList = () => {
     setCurrPage(1);
   }, [filteredProducts]);
 
+
   const productsList = shownProducts.map((prod) => (
     <ProductItem
       key={prod.name}
@@ -31,6 +32,7 @@ const ProductsList = () => {
       description={prod.description}
     />
   ));
+
 
   return (
     <section className={classes.products}>

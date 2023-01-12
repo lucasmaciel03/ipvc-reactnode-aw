@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../ButtonError/ButtonError';
-import ImageScarecrow from '../../assets/Scarecrow.png';
+import ImageScarecrow from '../../../assets/Scarecrow.png';
 import './NotFound.css';
 
 const NotFound = () => {

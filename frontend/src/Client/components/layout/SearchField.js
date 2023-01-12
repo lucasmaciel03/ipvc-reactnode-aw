@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import classes from "./SearchField.module.css";
-import { ReactComponent as IconSearch } from "../../assets/search.svg";
+import { ReactComponent as IconSearch } from "../../../assets/search.svg";
 import WrapperButton from "../utilities/WrapperButton";
 import { FilterContext } from "../../context/FilterContext";
 
