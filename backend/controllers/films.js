@@ -3,7 +3,7 @@ import { CategoryModel } from '../models/categories.js';
 
 // create new film, with this verifications, verify if name film already exit, if category id exist, verify if time > 0, verify if rent price > 0, save film in database
 export const createFilm = async (req, res) => {
-    const { name, categoryId, description, releaseDate, time, image, rentPrice } = req.body;
+    const { name, categoryId, description, releaseDate, time, img, price } = req.body;
     try {
         const film = await FilmModel.findOne({ where: { name } });
         if (film) {
@@ -16,7 +16,7 @@ export const createFilm = async (req, res) => {
         if (time <= 0) {
             return res.status(400).json({ message: 'Time must be greater than 0' });
         }
-        if (rentPrice <= 0) {
+        if (price <= 0) {
             return res.status(400).json({ message: 'Rent price must be greater than 0' });
         }
         await FilmModel.create({
@@ -25,8 +25,8 @@ export const createFilm = async (req, res) => {
             description,
             releaseDate,
             time,
-            image,
-            rentPrice,
+            img,
+            price,
         });
         return res.status(201).json({ message: 'Film created' });
     } catch (error) {
@@ -67,6 +67,22 @@ export const getAllFilmsWithCategoryName = async (req, res) => {
         films: films2
     });
 }
+
+// delete film by id and verify if film exist
+export const deleteFilmById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const film = await FilmModel.findOne({ where: { id } });
+        if (!film) {
+            return res.status(400).json({ message: 'Film not exist' });
+        }
+        await film.destroy();
+        return res.status(200).json({ message: 'Film deleted' });
+    } catch (error) {
+        return res.status(500).json({ message: 'Server error' });
+    }
+}
+
 
 
 

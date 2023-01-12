@@ -40,11 +40,11 @@ const FilmModel = dbInstance.define(
             allowNull: false,
             defaultValue: 0,
         },
-        image: {
+        img: {
             type: Sequelize.STRING,
             allowNull: false,
         },
-        rentPrice: {
+        price: {
             type: Sequelize.INTEGER,
             allowNull: false,
         },
