@@ -1,0 +1,15 @@
+.Button-Error{
+  font-weight: bold;
+  width: 200px;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.035em;
+  color: var(--cor-4);
+  background: var(--cor-5);
+  padding: 24px 43px;
+  cursor: pointer;
+}
+
+.Button-Error:hover{
+  background: var(--cor-2);
+}

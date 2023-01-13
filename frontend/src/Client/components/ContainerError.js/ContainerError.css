@@ -1,0 +1,12 @@
+.Container-Error{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1440px;
+  padding: 40px 77px;
+  display: grid;
+  min-height: calc(85vh);
+  align-content: space-between;
+  @media (max-width: 768px) {
+    padding: 20px 24px;
+  }
+}
