@@ -3,6 +3,7 @@ import {
   Badge,
   Box,
   Button,
+  ButtonGroup,
   MenuItem,
   TextField,
   Toolbar,
@@ -13,7 +14,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 import GroupIcon from "@mui/icons-material/Group";
-import Header from "../../Components/Header";
+import Header from "../../components/Header";
 
 const CreateUser = () => {
   const [allFilmes, setallFilmes] = useState([]);
@@ -61,6 +62,29 @@ const CreateUser = () => {
             style={{
               width: "80%",
               margin: "auto",
+              marginTop: "10px",
+              flexDirection: "column",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <ButtonGroup
+              disableElevation
+              variant="contained"
+              aria-label="Disabled elevation buttons"
+            >
+              <Link to="/admin/updateuser">
+                <Button color="secondary">Atualizar Utilizador</Button>
+              </Link>
+              <Link to="/admin/deleteuser">
+                <Button color="error">Eliminar Utilizador</Button>
+              </Link>
+            </ButtonGroup>
+          </div>
+          <div
+            style={{
+              width: "80%",
+              margin: "auto",
               flexDirection: "column",
               display: "flex",
               alignItems: "center",
@@ -90,6 +114,7 @@ const CreateUser = () => {
                 marginLeft: "0",
                 marginTop: "50px",
               }}
+              color="success"
             >
               Criar Utilizador
             </Button>

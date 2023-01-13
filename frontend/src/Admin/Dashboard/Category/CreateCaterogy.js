@@ -1,43 +1,21 @@
 import React from "react";
 import {
-  AppBar,
-  Badge,
   Box,
   Button,
-  MenuItem,
+  ButtonGroup,
   TextField,
-  Toolbar,
   Typography,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
-import GroupIcon from "@mui/icons-material/Group";
-import Header from "../../Components/Header";
+import Header from "../../components/Header";
 
 const CreateUser = () => {
-  const [allFilmes, setallFilmes] = useState([]);
-  const [allUsers, setallUsers] = useState([]);
-
-  useEffect(() => {
-    const url = "http://localhost:4243/api/films/countFilms";
-    axios.get(url).then((res) => {
-      setallFilmes(res.data);
-    });
-  }, []);
-
-  useEffect(() => {
-    const url = "http://localhost:4243/api/users/allUsers";
-    axios.get(url).then((res) => {
-      setallUsers(res.data);
-    });
-  }, []);
-
   return (
     <div>
       <>
-        <Header></Header>
+        <Header />
         <Box
           component="form"
           sx={{
@@ -58,6 +36,29 @@ const CreateUser = () => {
           >
             Criar Categorias
           </Typography>
+          <div
+          style={{
+            width: "80%",
+            margin: "auto",
+            marginTop: "10px",
+            flexDirection: "column",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <ButtonGroup
+            disableElevation
+            variant="contained"
+            aria-label="Disabled elevation buttons"
+          >
+            <Link to="/admin/updatecategory">
+              <Button color="secondary">Atualizar Categoria</Button>
+            </Link>
+            <Link to="/admin/deletecategory">
+              <Button color="error">Eliminar Categoria</Button>
+            </Link>
+          </ButtonGroup>
+        </div>
           <div
             style={{
               width: "80%",
@@ -83,6 +84,7 @@ const CreateUser = () => {
                 marginLeft: "0",
                 marginTop: "50px",
               }}
+              color = "success"
             >
               Criar Categoria
             </Button>
