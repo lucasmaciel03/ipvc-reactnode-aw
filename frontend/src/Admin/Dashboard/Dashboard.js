@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import CategoryIcon from "@mui/icons-material/Category";
 import jwtDecode from "jwt-decode";
-import Header from "../components/Header";
+import Header from "../Components/Header";
 import {
   Box,
   Button,

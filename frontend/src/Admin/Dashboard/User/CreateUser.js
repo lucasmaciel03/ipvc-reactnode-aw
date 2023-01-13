@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 import GroupIcon from "@mui/icons-material/Group";
-import Header from "../../components/Header";
+import Header from "../../Components/Header";
 
 const CreateUser = () => {
   const [allFilmes, setallFilmes] = useState([]);

@@ -6,9 +6,9 @@ export const createFilm = async (req, res) => {
     const { name, categoryId, description, releaseDate, time, img, price } = req.body;
     try {
         const film = await FilmModel.findOne({ where: { name } });
-        if (film) {
-            return res.status(400).json({ message: 'Film already exist' });
-        }
+        // if (film) {
+        //     return res.status(400).json({ message: 'Film already exist' });
+        // }
         const category = await CategoryModel.findOne({ where: { id: categoryId } });
         if (!category) {
             return res.status(400).json({ message: 'Category not exist' });
